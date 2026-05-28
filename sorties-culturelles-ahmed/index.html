@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sorties culturelles Ahmed - Rabat / Casa</title>
+  <meta name="description" content="Selection courte de spectacles, concerts et evenements musicaux a Rabat et Casablanca pour Ahmed.">
+  <style>
+    :root {
+      --ink: #181716;
+      --muted: #69625b;
+      --line: #ddd5ca;
+      --paper: #fbfaf7;
+      --cream: #f3eee6;
+      --gold: #c78f2e;
+      --teal: #1f766d;
+      --rose: #b84b64;
+      --night: #25212a;
+      --white: #ffffff;
+      --shadow: 0 18px 48px rgba(24, 23, 22, .13);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(20,18,16,.16), rgba(20,18,16,.72)),
+        url("https://mawazine.ma/wp-content/uploads/2019/03/bandeau-TNMV.jpg") center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 36%;
+      background: linear-gradient(180deg, transparent, var(--paper));
+      z-index: -1;
+    }
+
+    .hero-inner,
+    main,
+    footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      padding: 96px 0 80px;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(0,0,0,.22);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 18px 0 16px;
+      font-size: clamp(42px, 8vw, 84px);
+      line-height: .94;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255,255,255,.88);
+      font-size: 19px;
+    }
+
+    .summary {
+      margin-top: -42px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .panel,
+    .event,
+    .note {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel h2,
+    .section-title h2,
+    .event h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .panel h2 { font-size: 28px; }
+
+    .panel p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--cream);
+      min-height: 82px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .rules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--night);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tag.teal { background: var(--teal); }
+    .tag.gold { background: var(--gold); color: #21160a; }
+    .tag.rose { background: var(--rose); }
+    .tag.light {
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid var(--line);
+    }
+
+    main {
+      padding: 34px 0 54px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 18px 0 18px;
+    }
+
+    .section-title h2 { font-size: 30px; }
+    .section-title p {
+      max-width: 540px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .event {
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 210px auto;
+    }
+
+    .event.featured {
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(280px, .9fr) 1.1fr;
+      grid-template-rows: auto;
+    }
+
+    .media {
+      min-height: 210px;
+      background: var(--night);
+      overflow: hidden;
+    }
+
+    .media img {
+      width: 100%;
+      height: 100%;
+      min-height: 210px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .event-body {
+      padding: 20px;
+    }
+
+    .event h3 {
+      margin-top: 12px;
+      font-size: 25px;
+    }
+
+    .event.featured h3 {
+      font-size: 34px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 7px;
+      margin: 14px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .meta b {
+      color: var(--ink);
+    }
+
+    .why {
+      color: #393531;
+      margin: 0 0 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .button.secondary {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 18px;
+      background: #fffaf2;
+    }
+
+    .note h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .note ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 26px 0 46px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: 72vh;
+      }
+
+      .hero-inner {
+        padding: 78px 0 64px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .summary,
+      .grid,
+      .event.featured {
+        grid-template-columns: 1fr;
+      }
+
+      .summary {
+        margin-top: -28px;
+      }
+
+      .score {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        display: block;
+      }
+
+      .section-title p {
+        margin-top: 8px;
+      }
+
+      .event.featured h3,
+      .event h3 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Veille culturelle V1 · Rabat / Casablanca · 28 mai 2026</div>
+      <h1>Sorties qui valent vraiment le déplacement</h1>
+      <p>Selection courte pour eviter les listes molles : musique, scene et concerts avec un vrai niveau, Rabat d'abord, Casa seulement quand l'affiche justifie la route.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="summary" aria-label="Verdict">
+      <div class="panel">
+        <h2>Verdict rapide</h2>
+        <p>Le meilleur choix pour toi est <b>Imany a Mawazine</b> : salle assise, voix forte, univers soul/folk/blues, et une vraie valeur musicale. C'est a 21h, donc un peu tard pour ta regle habituelle, mais l'exception se defend.</p>
+        <div class="score" aria-label="Scores">
+          <div class="metric"><strong>8.8</strong><span>choix Ahmed</span></div>
+          <div class="metric"><strong>Rabat</strong><span>prioritaire</span></div>
+          <div class="metric"><strong>4</strong><span>options retenues</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Filtre applique</h2>
+        <p>J'ai penalise les horaires trop tardifs, les gros concerts trop foule et les affiches faibles.</p>
+        <div class="rules" style="margin-top:16px">
+          <span class="tag teal">Rabat d'abord</span>
+          <span class="tag gold">Casa si worth it</span>
+          <span class="tag rose">HTML, pas pavé Telegram</span>
+          <span class="tag light">Vendredi / week-end favorise</span>
+          <span class="tag light">Horaires tardifs signales</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Choix classes</h2>
+        <p>Les horaires, lieux et prix ci-dessous viennent des pages sources consultees. Quand une source se contredit, je le marque au lieu de trancher artificiellement.</p>
+      </div>
+
+      <div class="grid">
+        <article class="event featured">
+          <div class="media">
+            <img src="https://mawazine.ma/wp-content/uploads/2016/05/DpR-Mawazine-siteweb-artiste-Imany-900x450-1.jpg" alt="Imany">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag teal">Meilleur choix</span>
+              <span class="tag">Rabat</span>
+              <span class="tag rose">21h, exception acceptable</span>
+            </div>
+            <h3>Imany · Mawazine</h3>
+            <div class="meta">
+              <div><b>Date :</b> lundi 22 juin 2026 · 21h00</div>
+              <div><b>Lieu :</b> Theatre National Mohammed V, Rabat</div>
+              <div><b>Pourquoi :</b> voix, elegance, format salle, meilleur equilibre entre qualite musicale et confort.</div>
+              <div><b>Prix :</b> non affiche sur la page artiste consultee.</div>
+            </div>
+            <p class="why">C'est le choix le plus fin : pas seulement une sortie, un vrai moment musical. Si tu dois bloquer une date culturelle en juin, je commencerais par celle-la.</p>
+            <div class="actions">
+              <a class="button" href="https://mawazine.ma/fr/imany/">Voir source</a>
+              <a class="button secondary" href="https://mawazine.ma/fr/edition-2026/scenes/decouverte-theatre-national-mohammed-v/">Programme Theatre Mohammed V</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="media">
+            <img src="https://www.lodj.ma/photo/agenda-2055189.jpg" alt="Lumtna Zina a Rabat">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag gold">Proche / pratique</span>
+              <span class="tag">Rabat</span>
+              <span class="tag light">Horaire a confirmer</span>
+            </div>
+            <h3>Lumtna Zina</h3>
+            <div class="meta">
+              <div><b>Date :</b> dimanche 7 juin 2026</div>
+              <div><b>Horaire :</b> la page indique 19h00-21h00 en entete, puis 16h00 dans le descriptif.</div>
+              <div><b>Lieu :</b> Theatre Al Mansour, Rabat</div>
+              <div><b>Style :</b> patrimoine musical marocain, voix populaires et traditionnelles.</div>
+            </div>
+            <p class="why">Bon choix local, culturel, chaleureux. Je le garde en option si l'horaire final est confortable.</p>
+            <div class="actions">
+              <a class="button" href="https://www.lodj.ma/agenda/Lumtna-Zina-une-celebration-exceptionnelle-du-patrimoine-musical-marocain-a-Rabat_ae2055189.html">Voir source</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="media">
+            <img src="https://mawazine.ma/wp-content/uploads/2019/03/bandeau_Bouregreg.jpg" alt="Scene Bouregreg Mawazine">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag teal">Grand niveau</span>
+              <span class="tag">Rabat</span>
+              <span class="tag rose">22h30 tardif</span>
+            </div>
+            <h3>Oumou Sangare · Bouregreg</h3>
+            <div class="meta">
+              <div><b>Date :</b> vendredi 26 juin 2026 · 22h30</div>
+              <div><b>Lieu :</b> scene Bouregreg, en face des Oudayas, Rabat</div>
+              <div><b>Pourquoi :</b> grande voix africaine, forte identite musicale, scene interessante.</div>
+              <div><b>Statut :</b> tres bon artistiquement, mais horaire trop tardif selon ta preference.</div>
+            </div>
+            <p class="why">Je ne le mettrais pas en premier a cause de l'heure, mais artistiquement c'est une vraie affiche.</p>
+            <div class="actions">
+              <a class="button" href="https://mawazine.ma/fr/edition-2026/scenes/bouregreg/">Programme Bouregreg</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="media">
+            <img src="https://mawazine.ma/wp-content/uploads/2019/03/bandeau-TNMV.jpg" alt="Theatre National Mohammed V">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag teal">Jazz / scene</span>
+              <span class="tag">Rabat</span>
+              <span class="tag rose">21h tardif</span>
+            </div>
+            <h3>Dee Dee Bridgewater · Mawazine</h3>
+            <div class="meta">
+              <div><b>Date :</b> vendredi 26 juin 2026 · 21h00</div>
+              <div><b>Lieu :</b> Theatre National Mohammed V, Rabat</div>
+              <div><b>Pourquoi :</b> option jazz internationale, plus exigeante et moins "mass market".</div>
+              <div><b>Prix :</b> non affiche dans le programme consulte.</div>
+            </div>
+            <p class="why">Potentiellement excellent. Je le placerais juste derriere Imany si tu veux une sortie plus jazz et moins chanson.</p>
+            <div class="actions">
+              <a class="button" href="https://mawazine.ma/fr/edition-2026/scenes/decouverte-theatre-national-mohammed-v/">Programme Theatre Mohammed V</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="media">
+            <img src="https://mawazine.ma/wp-content/uploads/2018/05/tnmv1.jpg" alt="Salle de spectacle">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag gold">Casa qui vaut le trajet</span>
+              <span class="tag">Casablanca</span>
+              <span class="tag light">20h30</span>
+            </div>
+            <h3>Nacim Haddad · Ayta World Tour</h3>
+            <div class="meta">
+              <div><b>Date :</b> vendredi 26 juin 2026 · 20h30</div>
+              <div><b>Lieu :</b> Salle couverte, Complexe sportif Mohammed V, Casablanca</div>
+              <div><b>Prix :</b> 250 a 1000 MAD selon categorie.</div>
+              <div><b>Pourquoi :</b> Ayta modernisee, ambition scenique, identite marocaine forte.</div>
+            </div>
+            <p class="why">C'est l'option Casa la plus coherente : pas une simple soiree, mais un projet culturel structure.</p>
+            <div class="actions">
+              <a class="button" href="https://events.ma/concerts-festivals/nacim-haddad-26-06-26">Reservation / source</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event">
+          <div class="media">
+            <img src="https://mawazine.ma/wp-content/uploads/2026/04/Logo-mawazine-e2026.png" alt="Mawazine 2026">
+          </div>
+          <div class="event-body">
+            <div class="rules">
+              <span class="tag light">Avec Ghita</span>
+              <span class="tag">Rabat</span>
+              <span class="tag rose">21h tardif</span>
+            </div>
+            <h3>Elissa · Theatre Royal de Rabat</h3>
+            <div class="meta">
+              <div><b>Date :</b> samedi 20 juin 2026 · 21h00</div>
+              <div><b>Lieu :</b> Theatre Royal de Rabat, vallee du Bouregreg</div>
+              <div><b>Pourquoi :</b> grande voix arabe contemporaine, sortie plus emotionnelle/populaire.</div>
+              <div><b>Prix :</b> non visible dans l'extrait accessible.</div>
+            </div>
+            <p class="why">Moins "decouverte" qu'Imany ou Nacim Haddad, mais bonne sortie a deux si vous voulez une soiree elegante.</p>
+            <div class="actions">
+              <a class="button" href="https://events.ma/thratre-royal-de-rabat/elissa-20-06-26">Reservation / source</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="note" aria-label="Evenements ecartes">
+      <h2>Ce que j'ecarte pour l'instant</h2>
+      <ul>
+        <li>Les grosses scenes tres tardives a 22h30 quand l'interet artistique ne compense pas clairement.</li>
+        <li>Les evenements Casa sans vraie singularite : le trajet doit se justifier.</li>
+        <li>Les pages qui ne donnent pas date, lieu ou source fiable.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Sources consultees : Mawazine 2026, Events.ma, L'Opinion / LODJ. Page generee pour Ahmed le 28 mai 2026. Les disponibilites et prix doivent etre reverifies au moment de reserver.
+  </footer>
+</body>
+</html>
