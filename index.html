@@ -26,11 +26,20 @@
       color: #5f6b76;
       font-size: 17px;
     }
+    .links {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
     a {
-      display: inline-block;
-      margin-top: 18px;
+      display: block;
+      padding: 14px 16px;
+      border: 1px solid rgba(20, 61, 40, .18);
+      border-radius: 12px;
+      background: #ffffff;
       color: #143d28;
       font-weight: 700;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -38,7 +47,10 @@
   <main>
     <h1>Belkora Quick Pages</h1>
     <p>Pages HTML temporaires publiées par OpenClaw pour validation rapide.</p>
-    <a href="./exemple-mise-en-place-html/">Voir l'exemple HTML</a>
+    <div class="links">
+      <a href="./cinema-recommandations-ahmed/">Cinéma — recommandations Ahmed</a>
+      <a href="./exemple-mise-en-place-html/">Exemple mise en place HTML</a>
+    </div>
   </main>
 </body>
 </html>
