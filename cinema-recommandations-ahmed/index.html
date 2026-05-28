@@ -171,8 +171,8 @@
         </section>
 
         <div class="actions">
-          <a class="btn primary" href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html" target="_blank" rel="noopener">Reserver sur Megarama Rabat</a>
-          <a class="btn secondary" href="https://www.pathe.ma/fr/films-evenements/tuner-le-virtuose-51918" target="_blank" rel="noopener">Voir la fiche Pathé</a>
+          <a class="btn primary" href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">Payer Pathé Dar Essalam - aujourd'hui 19h30 VOST VIP</a>
+          <a class="btn secondary" href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html" target="_blank" rel="noopener">Voir aussi Megarama Rabat</a>
           <a class="btn secondary" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener">Rotten Tomatoes</a>
           <a class="btn secondary" href="https://www.imdb.com/title/tt33296751/" target="_blank" rel="noopener">IMDb</a>
         </div>
@@ -180,28 +180,33 @@
         <section class="section">
           <h3>Horaires proposes</h3>
           <div class="showtime best">
-            <span class="time">19h45 - Megarama Rabat</span>
-            <b>Meilleur choix.</b> Seance affichee en 70MM sans badge FR sur Megarama : a privilegier car elle correspond le mieux a ta preference VOST/VO et a une sortie apres travail.
+            <span class="time">19h30 - Pathé Dar Essalam</span>
+            <b>Meilleur choix.</b> Seance VOSTFR confirmee par l'API Pathé, salle <b>4 VIP</b>, fin 21h39. Lien de paiement direct : <a href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">ouvrir la reservation</a>.
           </div>
           <div class="showtime">
-            <span class="time">14h15 - Megarama Rabat</span>
-            Meme statut affiche : 70MM sans badge FR. Bon choix si tu veux y aller plus tot, moins bon pour une soiree normale.
+            <span class="time">19h30 - Pathé Dar Essalam, jours suivants</span>
+            Vendredi 29, samedi 30 et dimanche 31 mai : VOSTFR, salle 4 VIP. Lundi 1er et mardi 2 juin : 19h45, VOSTFR, salle 4 VIP.
+          </div>
+          <div class="showtime">
+            <span class="time">14h00 / 14h15 / 14h30 - Pathé Dar Essalam</span>
+            VOSTFR aussi, salle 2 VIP. Bon plan seulement si tu veux une seance en journee.
           </div>
           <div class="showtime fr">
-            <span class="time">17h00 et 22h30 - Megarama Rabat</span>
-            Ces seances sont marquees FR 70MM : je les mets en second plan parce que tu preferes la VOST.
+            <span class="time">Megarama Rabat</span>
+            Possible en 70MM, mais le libelle Megarama est moins clair que l'API Pathé. Je le garde comme plan B, pas comme choix principal.
           </div>
-          <p class="note">Megarama affiche la semaine du 27 mai au 2 juin. Le site utilise les libelles VO/VF/FR : quand FR apparait, je le traite comme version francaise ; quand seul 70MM apparait, je le traite comme le meilleur candidat VO/VOST, a confirmer au moment du paiement.</p>
+          <p class="note">Méthode trouvee : lecture JSON Pathé via <code>/api/show/tuner-le-virtuose-51918/showtimes/cinema-pathe-dar-essalam/YYYY-MM-DD</code>. Les seances ci-dessus viennent de cette API.</p>
         </section>
 
         <section class="section">
           <h3>Pathé Dar Essalam : VIP ou normal ?</h3>
           <div class="chips">
-            <span class="chip warn">Seance Pathé non verifiee</span>
-            <span class="chip good">Dar Essalam : normal</span>
-            <span class="chip warn">VIP Pathé indique comme unique a Casablanca</span>
+            <span class="chip good">Seance Pathé verifiee</span>
+            <span class="chip good">VOSTFR</span>
+            <span class="chip good">Salle 4 VIP</span>
+            <span class="chip good">Disponible</span>
           </div>
-          <p>Pathé liste bien <b>Tuner / Le Virtuose</b>, mais je n'ai pas trouve de seance horaire fiable sur la page consultable. Pour le type de salle : Pathé indique que le concept VIP est a Casablanca ; je ne considere donc pas Dar Essalam comme VIP pour cette recommandation.</p>
+          <p>Correction : l'API Pathé confirme que Dar Essalam propose bien cette seance en <b>VIP</b>. La meilleure seance pour toi est donc <b>aujourd'hui jeudi 28 mai 2026 a 19h30</b>, en <b>VOSTFR</b>, salle <b>4 VIP</b>.</p>
         </section>
 
         <section class="section">
@@ -229,14 +234,15 @@
 
     <section class="mini">
       <h3>Decision rapide</h3>
-      <p>Prends <b>Megarama Rabat a 19h45</b> si la page de paiement confirme VO/VOST. Si elle bascule en FR, je laisserais tomber ou je verifierais Pathé juste avant de partir.</p>
+      <p>Prends <b>Pathé Dar Essalam aujourd'hui a 19h30</b>. C'est VOSTFR, VIP, disponible, et le lien de paiement direct est : <a href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">https://s.pathe.ma/fr/V5402S3669/booking</a>.</p>
     </section>
 
     <section class="mini source-list">
       <h3>Sources verifiees</h3>
       <p>
         Megarama Rabat : <a href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html">fiche film et horaires</a><br>
-        Pathé : <a href="https://www.pathe.ma/fr/films-evenements/tuner-le-virtuose-51918">fiche Tuner / Le Virtuose</a><br>
+        Pathé API : <a href="https://www.pathe.ma/api/show/tuner-le-virtuose-51918/showtimes/cinema-pathe-dar-essalam/2026-05-28">seances Dar Essalam du 28 mai</a><br>
+        Paiement Pathé choisi : <a href="https://s.pathe.ma/fr/V5402S3669/booking">19h30 VOSTFR VIP</a><br>
         Rotten Tomatoes : <a href="https://www.rottentomatoes.com/m/tuner">notes, synopsis et critiques</a><br>
         Trailer : <a href="https://www.youtube.com/watch?v=rdlOZhl-nSA">YouTube officiel</a>
       </p>
