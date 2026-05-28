@@ -3,73 +3,243 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cinéma — recommandation Ahmed</title>
-  <meta name="description" content="Recommandation cinéma hebdomadaire avec notes, critiques, trailer et séance." />
+  <title>Cinema - recommandation Ahmed</title>
+  <meta name="description" content="Recommandation cinema hebdomadaire avec notes, image, resume, trailer integre et seances." />
   <style>
-    :root{--bg:#08070b;--card:#15151e;--card2:#101018;--text:#fff7ea;--muted:#bdb3c8;--gold:#f2b84b;--green:#55d68e;--red:#e15b66;--line:rgba(255,255,255,.11)}
-    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% -10%,#39203f 0,#08070b 38%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}.wrap{max-width:760px;margin:auto;padding:18px 14px 44px}.top{padding:22px 4px 16px}.kicker{color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:900}.top h1{font-size:38px;line-height:.95;letter-spacing:-.05em;margin:10px 0}.top p{color:var(--muted);font-size:16px;margin:0}.card{background:linear-gradient(160deg,#1a1a26,#0f0f15);border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:0 26px 90px rgba(0,0,0,.45);margin-top:18px}.hero{min-height:420px;background:linear-gradient(135deg,rgba(90,23,36,.9),rgba(17,17,17,.92) 52%,rgba(139,100,36,.9)),url('https://www.filmtv.it/imgbank/LOC/R202603/ftv45-69c610fcacc9c-poster_TUNER.jpg');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;position:relative}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.12));}.hero>*{position:relative;z-index:1}.label{display:inline-flex;width:max-content;border-radius:999px;padding:7px 11px;background:rgba(83,209,139,.16);color:var(--green);font-weight:950;font-size:13px}.hero h2{font-size:58px;line-height:.9;margin:14px 0 8px;text-shadow:0 8px 30px rgba(0,0,0,.45)}.hero .meta{color:#f5d895;font-weight:900}.body{padding:22px}.verdict{font-size:20px;margin:0 0 16px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:13px}.metric small{display:block;color:var(--muted);font-size:12px}.metric strong{font-size:28px}.actions{display:grid;gap:10px;margin:18px 0}.btn{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:18px;padding:14px 16px;font-weight:950;text-align:center}.primary{background:var(--gold);color:#17100a}.secondary{background:#252236;color:var(--text);border:1px solid var(--line)}.section{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.section h3{margin:0 0 10px;font-size:18px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:7px 10px;border-radius:999px;background:#242134;color:#ddd;font-size:13px}.quote{background:var(--card2);border-left:3px solid var(--gold);border-radius:14px;padding:12px;margin:10px 0;color:#ddd}.quote b{color:#fff}.showtime{display:flex;justify-content:space-between;gap:14px;background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:13px;margin-top:8px}.showtime b{color:var(--gold);font-size:24px}.note{color:var(--muted);font-size:14px}.mini{background:var(--card2);border:1px solid var(--line);border-radius:22px;padding:16px;margin-top:14px}.avoid{border-color:rgba(225,91,102,.38)}@media(max-width:460px){.top h1{font-size:34px}.hero{min-height:360px}.hero h2{font-size:48px}.metrics{grid-template-columns:1fr}.showtime{display:block}.showtime b{display:block;margin-top:6px}}
+    :root {
+      --bg: #08070b;
+      --card: #15151e;
+      --card2: #101018;
+      --text: #fff7ea;
+      --muted: #bdb3c8;
+      --gold: #f2b84b;
+      --green: #55d68e;
+      --red: #e15b66;
+      --blue: #7cc7ff;
+      --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 80% -10%, #39203f 0, #08070b 38%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    .wrap { max-width: 780px; margin: auto; padding: 18px 14px 44px; }
+    .top { padding: 22px 4px 16px; }
+    .kicker { color: var(--gold); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; }
+    h1 { font-size: 38px; line-height: .98; margin: 10px 0; }
+    .top p { color: var(--muted); font-size: 16px; margin: 0; }
+    .card {
+      background: linear-gradient(160deg, #1a1a26, #0f0f15);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 26px 90px rgba(0,0,0,.45);
+      margin-top: 18px;
+    }
+    .hero {
+      min-height: 430px;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.86), rgba(0,0,0,.12) 55%),
+        url("https://media.pathe.ma/movie/mx/51918/lg/57/media");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+    }
+    .label {
+      display: inline-flex;
+      width: max-content;
+      max-width: 100%;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(83,209,139,.16);
+      color: var(--green);
+      font-weight: 950;
+      font-size: 13px;
+    }
+    .hero h2 { font-size: 56px; line-height: .9; margin: 14px 0 8px; text-shadow: 0 8px 30px rgba(0,0,0,.5); }
+    .meta { color: #f5d895; font-weight: 900; }
+    .body { padding: 22px; }
+    .verdict { font-size: 20px; margin: 0 0 16px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .metric { background: var(--card2); border: 1px solid var(--line); border-radius: 18px; padding: 13px; }
+    .metric small { display: block; color: var(--muted); font-size: 12px; }
+    .metric strong { display: block; font-size: 28px; line-height: 1.1; margin: 4px 0; }
+    .note { color: var(--muted); font-size: 14px; }
+    .section { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 18px; }
+    .section h3 { margin: 0 0 10px; font-size: 18px; }
+    .poster-row { display: grid; grid-template-columns: 138px 1fr; gap: 14px; align-items: start; }
+    .poster {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #09090d;
+    }
+    .video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .actions { display: grid; gap: 10px; margin: 18px 0; }
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-weight: 950;
+      text-align: center;
+    }
+    .primary { background: var(--gold); color: #17100a; }
+    .secondary { background: #252236; color: var(--text); border: 1px solid var(--line); }
+    .showtime {
+      background: var(--card2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 13px;
+      margin-top: 8px;
+    }
+    .showtime .time { display: block; color: var(--gold); font-size: 25px; font-weight: 950; }
+    .showtime.best { border-color: rgba(85,214,142,.5); box-shadow: inset 0 0 0 1px rgba(85,214,142,.16); }
+    .showtime.fr { border-color: rgba(225,91,102,.42); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 7px 10px; border-radius: 999px; background: #242134; color: #ddd; font-size: 13px; }
+    .chip.good { background: rgba(85,214,142,.16); color: var(--green); }
+    .chip.warn { background: rgba(225,91,102,.14); color: #ff9fa8; }
+    .quote { background: var(--card2); border-left: 3px solid var(--gold); border-radius: 14px; padding: 12px; margin: 10px 0; color: #ddd; }
+    .quote b { color: #fff; }
+    .mini { background: var(--card2); border: 1px solid var(--line); border-radius: 22px; padding: 16px; margin-top: 14px; }
+    .source-list a { color: var(--blue); overflow-wrap: anywhere; }
+    @media (max-width: 540px) {
+      h1 { font-size: 34px; }
+      .hero { min-height: 370px; }
+      .hero h2 { font-size: 46px; }
+      .metrics { grid-template-columns: 1fr; }
+      .poster-row { grid-template-columns: 1fr; }
+      .poster { max-width: 190px; }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
     <header class="top">
-      <div class="kicker">Veille cinéma · Ahmed</div>
-      <h1>Le choix simple pour cette semaine</h1>
-      <p>Une fiche courte pour décider, voir la bande-annonce, vérifier les critiques et réserver.</p>
+      <div class="kicker">Veille cinema - Ahmed - mise a jour 28 mai 2026</div>
+      <h1>Le choix cinema simple pour cette semaine</h1>
+      <p>Priorite a la VOST, aux seances apres travail et aux films qui meritent vraiment une sortie.</p>
     </header>
 
     <article class="card">
       <div class="hero">
-        <span class="label">Meilleur choix · confiance élevée</span>
-        <h2>Le Virtuose</h2>
-        <div class="meta">Tuner · Daniel Roher · 1h49 · Thriller / crime / suspense</div>
+        <span class="label">Meilleur choix - confiance elevee</span>
+        <h2>Tuner / Le Virtuose</h2>
+        <div class="meta">Daniel Roher - 1h49 - thriller, crime, romance, musique</div>
       </div>
+
       <div class="body">
-        <p class="verdict"><b>Verdict :</b> le plus intéressant du lot. Un thriller musical intelligent, avec un concept clair — accordeur de piano devenu perceur de coffres — et un casting assez noble pour mériter une vraie séance.</p>
+        <p class="verdict"><b>Verdict :</b> c'est le meilleur choix du lot. Le film a une vraie idee de cinema : un accordeur de piano hypersensible au son decouvre que son oreille peut servir a ouvrir des coffres. C'est plus fin qu'un simple film de braquage, avec une tension musicale et un casting solide.</p>
 
         <div class="metrics">
-          <div class="metric"><small>Rotten Tomatoes</small><strong>95%</strong><br><span class="note">Tomatometer — fiche consultée</span></div>
-          <div class="metric"><small>IMDb</small><strong>fiche liée</strong><br><span class="note">note à vérifier en direct</span></div>
+          <div class="metric"><small>Ma note decision</small><strong>8.2/10</strong><span class="note">Sortie recommandee</span></div>
+          <div class="metric"><small>Rotten Tomatoes</small><strong>94%</strong><span class="note">Tomatometer - 94 critiques</span></div>
+          <div class="metric"><small>Public RT / IMDb</small><strong>92%</strong><span class="note">IMDb : pas de note fiable affichee</span></div>
         </div>
 
+        <section class="section">
+          <h3>Image du film & resume</h3>
+          <div class="poster-row">
+            <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001089/poster/lg/2/movie%26uuid%3DA18E6C8E-82EA-41B0-9D80-DAC0AF6AA728" alt="Affiche du film Tuner / Le Virtuose" />
+            <p>Apres avoir perdu la voie d'une carriere musicale prometteuse, Niki travaille comme accordeur de piano avec son mentor Harry. Son hypersensibilite auditive, d'abord une fragilite, devient une competence rare : il entend les mecanismes assez finement pour ouvrir des coffres. Ce talent attire des criminels, complique sa relation naissante avec Ruthie, et l'entraine dans une zone de plus en plus dangereuse.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Trailer officiel YouTube</h3>
+          <div class="video">
+            <iframe src="https://www.youtube.com/embed/rdlOZhl-nSA" title="TUNER - Official Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </section>
+
         <div class="actions">
-          <a class="btn primary" href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html" target="_blank" rel="noopener">Réserver / payer sur Megarama Rabat</a>
-          <a class="btn secondary" href="https://www.youtube.com/results?search_query=Tuner+2026+official+trailer+Leo+Woodall+Dustin+Hoffman" target="_blank" rel="noopener">Voir le trailer YouTube</a>
+          <a class="btn primary" href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html" target="_blank" rel="noopener">Reserver sur Megarama Rabat</a>
+          <a class="btn secondary" href="https://www.pathe.ma/fr/films-evenements/tuner-le-virtuose-51918" target="_blank" rel="noopener">Voir la fiche Pathé</a>
           <a class="btn secondary" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener">Rotten Tomatoes</a>
           <a class="btn secondary" href="https://www.imdb.com/title/tt33296751/" target="_blank" rel="noopener">IMDb</a>
         </div>
 
         <section class="section">
-          <h3>Séance choisie</h3>
-          <div class="showtime"><span>Vendredi 29 mai 2026 · Megarama Rabat · VF 70MM</span><b>19h45</b></div>
-          <p class="note">Lien exact disponible vers la fiche Megarama. Paiement final à confirmer sur le site, car Megarama peut modifier les horaires.</p>
+          <h3>Horaires proposes</h3>
+          <div class="showtime best">
+            <span class="time">19h45 - Megarama Rabat</span>
+            <b>Meilleur choix.</b> Seance affichee en 70MM sans badge FR sur Megarama : a privilegier car elle correspond le mieux a ta preference VOST/VO et a une sortie apres travail.
+          </div>
+          <div class="showtime">
+            <span class="time">14h15 - Megarama Rabat</span>
+            Meme statut affiche : 70MM sans badge FR. Bon choix si tu veux y aller plus tot, moins bon pour une soiree normale.
+          </div>
+          <div class="showtime fr">
+            <span class="time">17h00 et 22h30 - Megarama Rabat</span>
+            Ces seances sont marquees FR 70MM : je les mets en second plan parce que tu preferes la VOST.
+          </div>
+          <p class="note">Megarama affiche la semaine du 27 mai au 2 juin. Le site utilise les libelles VO/VF/FR : quand FR apparait, je le traite comme version francaise ; quand seul 70MM apparait, je le traite comme le meilleur candidat VO/VOST, a confirmer au moment du paiement.</p>
         </section>
 
         <section class="section">
-          <h3>Acteurs & équipe à retenir</h3>
+          <h3>Pathé Dar Essalam : VIP ou normal ?</h3>
           <div class="chips">
-            <span class="chip">Daniel Roher — réalisateur</span><span class="chip">Leo Woodall</span><span class="chip">Dustin Hoffman</span><span class="chip">Havana Rose Liu</span><span class="chip">Jean Reno</span><span class="chip">Lior Raz</span><span class="chip">Tovah Feldshuh</span><span class="chip">Herbie Hancock</span>
+            <span class="chip warn">Seance Pathé non verifiee</span>
+            <span class="chip good">Dar Essalam : normal</span>
+            <span class="chip warn">VIP Pathé indique comme unique a Casablanca</span>
+          </div>
+          <p>Pathé liste bien <b>Tuner / Le Virtuose</b>, mais je n'ai pas trouve de seance horaire fiable sur la page consultable. Pour le type de salle : Pathé indique que le concept VIP est a Casablanca ; je ne considere donc pas Dar Essalam comme VIP pour cette recommandation.</p>
+        </section>
+
+        <section class="section">
+          <h3>Equipe et acteurs</h3>
+          <div class="chips">
+            <span class="chip">Daniel Roher - realisateur</span>
+            <span class="chip">Leo Woodall</span>
+            <span class="chip">Dustin Hoffman</span>
+            <span class="chip">Havana Rose Liu</span>
+            <span class="chip">Jean Reno</span>
+            <span class="chip">Lior Raz</span>
+            <span class="chip">Tovah Feldshuh</span>
+            <span class="chip">Herbie Hancock</span>
           </div>
         </section>
 
         <section class="section">
-          <h3>Critiques importantes</h3>
-          <div class="quote"><b>Rotten Tomatoes :</b> consensus positif : le film révèle Leo Woodall et enrichit son idée de caper/heist avec humour et personnages vivants.</div>
-          <div class="quote"><b>The Guardian — 4/5 :</b> apprécie le duo Leo Woodall / Dustin Hoffman et le mélange romcom + thriller criminel détendu.</div>
-          <div class="quote"><b>Houston Chronicle — 4.5/5 :</b> voit un heist movie classique porté par une vraie étude de personnage.</div>
-          <div class="quote"><b>Globe and Mail :</b> souligne le charisme de Woodall, entre aisance de Ryan Gosling et maîtrise de Matt Damon.</div>
+          <h3>Pourquoi je le recommande</h3>
+          <div class="quote"><b>Rotten Tomatoes :</b> consensus tres positif : le film donne a Leo Woodall un vrai role de star et enrichit son idee de braquage avec humour et personnages vivants.</div>
+          <div class="quote"><b>The Guardian :</b> souligne le plaisir du duo Leo Woodall / Dustin Hoffman et le melange detendu entre romance, drame et thriller criminel.</div>
+          <div class="quote"><b>Mon filtre Ahmed :</b> bon potentiel de soiree parce que le film a une identite sonore, un concept clair et assez de style pour justifier la salle.</div>
         </section>
       </div>
     </article>
 
     <section class="mini">
-      <h3>Pourquoi ça colle pour toi</h3>
-      <p>Ce n’est pas seulement “un film d’action”. Il y a un angle musical, du style, une mécanique de tension, et un plaisir de cinéma adulte. C’est exactement le type de film qui mérite une sortie, plutôt qu’un visionnage distrait à la maison.</p>
+      <h3>Decision rapide</h3>
+      <p>Prends <b>Megarama Rabat a 19h45</b> si la page de paiement confirme VO/VOST. Si elle bascule en FR, je laisserais tomber ou je verifierais Pathé juste avant de partir.</p>
     </section>
 
-    <section class="mini avoid">
-      <h3>À éviter / moins prioritaire</h3>
-      <p><b>Mortal Kombat II</b> ou autres blockbusters faibles : à garder seulement si tu veux du pur spectacle sans exigence. Ici, <b>Le Virtuose</b> a un meilleur rapport curiosité / qualité / plaisir.</p>
+    <section class="mini source-list">
+      <h3>Sources verifiees</h3>
+      <p>
+        Megarama Rabat : <a href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html">fiche film et horaires</a><br>
+        Pathé : <a href="https://www.pathe.ma/fr/films-evenements/tuner-le-virtuose-51918">fiche Tuner / Le Virtuose</a><br>
+        Rotten Tomatoes : <a href="https://www.rottentomatoes.com/m/tuner">notes, synopsis et critiques</a><br>
+        Trailer : <a href="https://www.youtube.com/watch?v=rdlOZhl-nSA">YouTube officiel</a>
+      </p>
     </section>
   </main>
 </body>
