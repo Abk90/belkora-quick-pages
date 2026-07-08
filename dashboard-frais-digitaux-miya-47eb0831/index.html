@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard frais digitaux - Miya Belkora Design</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #d9e2df;
+      --soft: #f5f7f6;
+      --panel: #ffffff;
+      --green: #2f6b4f;
+      --blue: #285a8f;
+      --amber: #9a641d;
+      --red: #9b2c2c;
+      --shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #eef2f0;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 22px 14px 48px; }
+    header {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-bottom: 14px;
+    }
+    .hero, .card, .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 20px; }
+    .eyebrow { margin: 0 0 8px; color: var(--green); font-weight: 700; font-size: 13px; }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: 0; }
+    .subtitle { max-width: 760px; margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+    .status-box { padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+    .status-box strong { font-size: 28px; color: var(--green); }
+    .status-box span { color: var(--muted); font-size: 13px; }
+    .grid { display: grid; gap: 12px; }
+    .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 14px 0; }
+    .card { padding: 16px; min-width: 0; }
+    .label { margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+    .value { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: 0; }
+    .value small { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .note { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+    .sections { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
+    h2 { margin: 0 0 12px; font-size: 19px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; }
+    .stack { display: grid; gap: 10px; }
+    .bar-row { display: grid; gap: 5px; }
+    .bar-head { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; }
+    .bar { height: 9px; background: #e7ece9; border-radius: 999px; overflow: hidden; }
+    .bar > span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+    .bar.blue > span { background: var(--blue); }
+    .bar.amber > span { background: var(--amber); }
+    .bar.red > span { background: var(--red); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e9f3ee;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge.warn { background: #fff4df; color: var(--amber); }
+    .badge.risk { background: #fdecec; color: var(--red); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; background: #f7faf8; }
+    tr:last-child td { border-bottom: 0; }
+    .table-wrap { overflow: auto; margin-top: 12px; }
+    .source-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .source-list li { margin: 5px 0; }
+    .actions { margin: 0; padding-left: 20px; }
+    .actions li { margin: 8px 0; }
+    footer { margin-top: 16px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 860px) {
+      header, .sections, .kpis { grid-template-columns: 1fr; }
+      main { padding: 12px 10px 32px; }
+      .value { font-size: 24px; }
+      th, td { min-width: 135px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <p class="eyebrow">Miya Belkora Design - frais digitaux</p>
+        <h1>Dashboard coûts cloud, IA, Google et Ads</h1>
+        <p class="subtitle">Version initiale bâtie sur les emails vérifiés au 8 juillet 2026. Les montants sont séparés entre charges confirmées, run-rate indicatif et postes à raccorder avant décision.</p>
+      </section>
+      <aside class="status-box card">
+        <span>Dernière extraction</span>
+        <strong>08/07/2026</strong>
+        <span>Sources : Gmail + mémoire workspace. Pas encore connecté aux consoles Meta, Google Admin, Apify, GitHub ou Figma.</span>
+      </aside>
+    </header>
+
+    <section class="grid kpis">
+      <div class="card">
+        <p class="label">Run-rate vérifié</p>
+        <p class="value">~3 860 <small>DH/mois</small></p>
+        <p class="note">Inclut Google Workspace, Apify si conservé, GitHub, Figma, WhatsApp Business extrapolé.</p>
+      </div>
+      <div class="card">
+        <p class="label">Charges critiques</p>
+        <p class="value">1 <small>à sécuriser</small></p>
+        <p class="note">Google Workspace : paiement refusé puis régularisé. Risque de suspension si carte instable.</p>
+      </div>
+      <div class="card">
+        <p class="label">Optimisation immédiate</p>
+        <p class="value">Apify</p>
+        <p class="note">29 USD/mois sur compte personnel, utilité à prouver avant paiement.</p>
+      </div>
+      <div class="card">
+        <p class="label">Ads / acquisition</p>
+        <p class="value">À raccorder</p>
+        <p class="note">Meta Ads et Google Ads doivent être extraits des consoles ou factures complètes.</p>
+      </div>
+    </section>
+
+    <section class="grid sections">
+      <div class="card">
+        <h2>Répartition du run-rate connu</h2>
+        <div class="stack">
+          <div class="bar-row">
+            <div class="bar-head"><span>Google Workspace</span><b>~3 117 DH</b></div>
+            <div class="bar"><span style="width:81%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><span>Apify</span><b>~271 DH</b></div>
+            <div class="bar amber"><span style="width:7%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><span>WhatsApp Business</span><b>~245 DH</b></div>
+            <div class="bar blue"><span style="width:6%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><span>Figma</span><b>~187 DH</b></div>
+            <div class="bar"><span style="width:5%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><span>GitHub</span><b>~37 DH</b></div>
+            <div class="bar"><span style="width:1%"></span></div>
+          </div>
+        </div>
+        <h3>Hypothèses de conversion</h3>
+        <p class="note">USD/MAD ~9,36 ; EUR/MAD ~10,69 au 8 juillet 2026. Le total est un ordre de grandeur de gestion, pas une écriture comptable.</p>
+      </div>
+
+      <div class="card">
+        <h2>Décisions à prendre</h2>
+        <ol class="actions">
+          <li><b>Apify :</b> décider garder / arrêter / recréer en compte société après retour Mohammed. Ne pas payer avant diagnostic usage.</li>
+          <li><b>Google Workspace :</b> vérifier nombre de licences et carte principale. C’est le plus gros coût détecté et le plus critique.</li>
+          <li><b>Meta Ads / WhatsApp :</b> connecter la dépense ads réelle. Les frais de localisation Meta peuvent augmenter les coûts sur certaines audiences.</li>
+          <li><b>Figma :</b> vérifier si le plan professionnel sert réellement à Miya Design ou si une licence gratuite suffit.</li>
+          <li><b>Cloud / IA :</b> rechercher OpenAI, Claude, Railway, Odoo, Brevo et autres services qui ne ressortent pas encore comme factures propres.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fournisseur</th>
+            <th>Catégorie</th>
+            <th>Montant source</th>
+            <th>DH indicatif</th>
+            <th>Statut</th>
+            <th>Optimisation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Google Workspace</b><br>pepinierebelkora.com</td>
+            <td>Google / productivité</td>
+            <td>291,60 EUR / mois</td>
+            <td>~3 117 DH / mois</td>
+            <td><span class="badge risk">Critique</span><br>Paiement reçu après refus Visa 0833.</td>
+            <td>Auditer licences, sécuriser carte société, vérifier utilisateurs inactifs.</td>
+          </tr>
+          <tr>
+            <td><b>Apify</b></td>
+            <td>Scraping / automatisation</td>
+            <td>29 USD / mois</td>
+            <td>~271 DH / mois</td>
+            <td><span class="badge warn">À décider</span><br>Facture impayée, compte personnel.</td>
+            <td>Couper si aucun workflow actif ; sinon recréer proprement sur Miya.</td>
+          </tr>
+          <tr>
+            <td><b>WhatsApp Business / Meta</b></td>
+            <td>Acquisition / messagerie</td>
+            <td>12,20 USD du 18/06 au 01/07</td>
+            <td>~245 DH / mois extrapolé</td>
+            <td><span class="badge">Variable</span><br>Paiement manuel Visa 4649.</td>
+            <td>Suivre coût par lead WhatsApp et impact des nouveaux tarifs Meta.</td>
+          </tr>
+          <tr>
+            <td><b>Figma</b></td>
+            <td>Design / collaboration</td>
+            <td>20 USD / mois</td>
+            <td>~187 DH / mois</td>
+            <td><span class="badge">Actif</span><br>Plan professionnel, équipe Ahmed.</td>
+            <td>Vérifier usage réel par Miya Design et nombre de licences utiles.</td>
+          </tr>
+          <tr>
+            <td><b>GitHub</b></td>
+            <td>Code / repositories</td>
+            <td>4 USD / mois</td>
+            <td>~37 DH / mois</td>
+            <td><span class="badge">Actif</span><br>Organisation Groupe-Belkora.</td>
+            <td>Faible coût ; garder si repos actifs.</td>
+          </tr>
+          <tr>
+            <td><b>Meta Ads / Google Ads</b></td>
+            <td>Ads / acquisition</td>
+            <td>Non extrait</td>
+            <td>À raccorder</td>
+            <td><span class="badge warn">Priorité</span><br>Emails de politique tarifaire, pas encore les factures ads.</td>
+            <td>Connecter Ads Manager + Google Ads ou extraire factures mensuelles.</td>
+          </tr>
+          <tr>
+            <td><b>OpenAI / Claude / Railway / Brevo / Odoo</b></td>
+            <td>IA / cloud / CRM</td>
+            <td>Non vérifié</td>
+            <td>À raccorder</td>
+            <td><span class="badge warn">À investiguer</span></td>
+            <td>Recherche dédiée par console, carte bancaire et factures PDF.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid sections" style="margin-top:12px">
+      <div class="card">
+        <h2>Cadence proposée</h2>
+        <p class="note">Mise à jour hebdomadaire le lundi matin, puis consolidation mensuelle après réception des factures Google/Meta/GitHub/Figma.</p>
+        <h3>Indicateurs à ajouter</h3>
+        <ul class="source-list">
+          <li>Coût digital total mensuel par société : Miya vs Pépinière.</li>
+          <li>Coût Ads par lead qualifié et par vente.</li>
+          <li>Services inutilisés depuis 30 jours.</li>
+          <li>Cartes personnelles à basculer vers société.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Sources vérifiées</h2>
+        <ul class="source-list">
+          <li>Gmail : Apify invoice #202607071388, 29 USD, paiement échoué.</li>
+          <li>Gmail : Google Workspace paiement 291,60 EUR, 1 juillet 2026.</li>
+          <li>Gmail : WhatsApp Business reçu 12,20 USD, 18 juin-1 juillet 2026.</li>
+          <li>Gmail : GitHub receipt Groupe-Belkora, 4 USD, 23 juin-22 juillet 2026.</li>
+          <li>Gmail : Figma reçu abonnement professionnel, 20 USD, 18 mai-18 juin 2026.</li>
+          <li>Sources FX : Wise/Xe/Investing consultés le 8 juillet 2026.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Version v0.1 - Ce dashboard ne remplace pas la comptabilité. Il sert à piloter les coûts digitaux et les décisions d’optimisation.
+    </footer>
+  </main>
+</body>
+</html>
