@@ -3,250 +3,220 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cinema - recommandation Ahmed</title>
-  <meta name="description" content="Recommandation cinema hebdomadaire avec notes, image, resume, trailer integre et seances." />
+  <title>Veille cinéma Ahmed - 9 juillet 2026</title>
+  <meta name="description" content="Recommandation cinéma mobile-first pour Ahmed, avec meilleur choix, séances VOSTFR et liens de paiement quand disponibles." />
   <style>
     :root {
-      --bg: #08070b;
-      --card: #15151e;
-      --card2: #101018;
-      --text: #fff7ea;
-      --muted: #bdb3c8;
-      --gold: #f2b84b;
-      --green: #55d68e;
-      --red: #e15b66;
-      --blue: #7cc7ff;
-      --line: rgba(255,255,255,.12);
+      --bg: #0c0f13;
+      --panel: #151a20;
+      --panel2: #10151b;
+      --text: #fff8ea;
+      --muted: #b9c0c8;
+      --gold: #f0b84a;
+      --green: #61d394;
+      --red: #e66a76;
+      --blue: #82c7ff;
+      --line: rgba(255,255,255,.13);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: radial-gradient(circle at 80% -10%, #39203f 0, #08070b 38%);
+      background: #0c0f13;
       color: var(--text);
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.45;
     }
-    .wrap { max-width: 780px; margin: auto; padding: 18px 14px 44px; }
-    .top { padding: 22px 4px 16px; }
-    .kicker { color: var(--gold); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 900; }
-    h1 { font-size: 38px; line-height: .98; margin: 10px 0; }
-    .top p { color: var(--muted); font-size: 16px; margin: 0; }
-    .card {
-      background: linear-gradient(160deg, #1a1a26, #0f0f15);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 26px 90px rgba(0,0,0,.45);
-      margin-top: 18px;
-    }
+    a { color: var(--blue); overflow-wrap: anywhere; }
     .hero {
-      min-height: 430px;
+      min-height: 62vh;
+      display: grid;
+      align-items: end;
       background:
-        linear-gradient(to top, rgba(0,0,0,.86), rgba(0,0,0,.12) 55%),
-        url("https://media.pathe.ma/movie/mx/51918/lg/57/media");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 24px;
+        linear-gradient(180deg, rgba(12,15,19,.2), rgba(12,15,19,.94)),
+        url("https://media.pathe.ma/movie/mx/52720/lg/62/media") center/cover,
+        #111820;
     }
-    .label {
+    .wrap { width: min(860px, calc(100% - 28px)); margin: auto; }
+    .hero .wrap { padding: 76px 0 38px; }
+    .kicker {
       display: inline-flex;
-      width: max-content;
-      max-width: 100%;
+      border: 1px solid rgba(255,255,255,.28);
       border-radius: 999px;
       padding: 7px 11px;
-      background: rgba(83,209,139,.16);
-      color: var(--green);
-      font-weight: 950;
-      font-size: 13px;
+      background: rgba(0,0,0,.28);
+      font-size: 12px;
+      font-weight: 900;
+      color: #ffe3a5;
     }
-    .hero h2 { font-size: 56px; line-height: .9; margin: 14px 0 8px; text-shadow: 0 8px 30px rgba(0,0,0,.5); }
-    .meta { color: #f5d895; font-weight: 900; }
-    .body { padding: 22px; }
-    .verdict { font-size: 20px; margin: 0 0 16px; }
-    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .metric { background: var(--card2); border: 1px solid var(--line); border-radius: 18px; padding: 13px; }
-    .metric small { display: block; color: var(--muted); font-size: 12px; }
-    .metric strong { display: block; font-size: 28px; line-height: 1.1; margin: 4px 0; }
-    .note { color: var(--muted); font-size: 14px; }
-    .section { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 18px; }
-    .section h3 { margin: 0 0 10px; font-size: 18px; }
-    .poster-row { display: grid; grid-template-columns: 138px 1fr; gap: 14px; align-items: start; }
-    .poster {
-      width: 100%;
-      border-radius: 16px;
+    h1 { max-width: 760px; margin: 14px 0 10px; font-size: 46px; line-height: .96; letter-spacing: 0; }
+    .hero p { max-width: 680px; margin: 0; color: rgba(255,248,234,.88); font-size: 17px; }
+    main { padding: 18px 0 46px; }
+    .verdict, .card, .audit {
+      background: linear-gradient(160deg, var(--panel), var(--panel2));
       border: 1px solid var(--line);
-      background: #09090d;
+      border-radius: 8px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.34);
     }
-    .video {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #000;
-    }
-    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .actions { display: grid; gap: 10px; margin: 18px 0; }
-    .btn {
-      display: flex;
-      justify-content: center;
+    .verdict { margin-top: -34px; position: relative; padding: 18px; }
+    h2, h3 { margin: 0; line-height: 1.1; letter-spacing: 0; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 20px; }
+    p { color: var(--muted); }
+    .badge-row, .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      display: inline-flex;
       align-items: center;
+      min-height: 30px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #242b34;
+      color: #e7edf4;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .good { background: rgba(97,211,148,.16); color: var(--green); }
+    .gold { background: rgba(240,184,74,.17); color: #ffd98b; }
+    .warn { background: rgba(230,106,118,.16); color: #ffadb5; }
+    .section { margin-top: 22px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+    .card { overflow: hidden; display: grid; grid-template-columns: 118px 1fr; min-height: 170px; }
+    .poster { width: 100%; height: 100%; object-fit: cover; background: #080a0d; }
+    .body { padding: 15px; }
+    .rank { color: var(--gold); font-size: 13px; font-weight: 950; text-transform: uppercase; }
+    .meta { display: grid; gap: 5px; margin: 10px 0; color: var(--muted); font-size: 14px; }
+    .meta b { color: var(--text); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: #f0b84a;
+      color: #1a1208;
       text-decoration: none;
-      border-radius: 18px;
-      padding: 14px 16px;
       font-weight: 950;
-      text-align: center;
+      font-size: 14px;
     }
-    .primary { background: var(--gold); color: #17100a; }
-    .secondary { background: #252236; color: var(--text); border: 1px solid var(--line); }
-    .showtime {
-      background: var(--card2);
+    .btn.secondary { background: #232a33; color: var(--text); border: 1px solid var(--line); }
+    .mini {
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 13px;
-      margin-top: 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+      margin-top: 10px;
     }
-    .showtime .time { display: block; color: var(--gold); font-size: 25px; font-weight: 950; }
-    .showtime.best { border-color: rgba(85,214,142,.5); box-shadow: inset 0 0 0 1px rgba(85,214,142,.16); }
-    .showtime.fr { border-color: rgba(225,91,102,.42); }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { padding: 7px 10px; border-radius: 999px; background: #242134; color: #ddd; font-size: 13px; }
-    .chip.good { background: rgba(85,214,142,.16); color: var(--green); }
-    .chip.warn { background: rgba(225,91,102,.14); color: #ff9fa8; }
-    .quote { background: var(--card2); border-left: 3px solid var(--gold); border-radius: 14px; padding: 12px; margin: 10px 0; color: #ddd; }
-    .quote b { color: #fff; }
-    .mini { background: var(--card2); border: 1px solid var(--line); border-radius: 22px; padding: 16px; margin-top: 14px; }
-    .source-list a { color: var(--blue); overflow-wrap: anywhere; }
-    @media (max-width: 540px) {
-      h1 { font-size: 34px; }
-      .hero { min-height: 370px; }
-      .hero h2 { font-size: 46px; }
-      .metrics { grid-template-columns: 1fr; }
-      .poster-row { grid-template-columns: 1fr; }
-      .poster { max-width: 190px; }
+    .audit { padding: 16px; margin-top: 22px; background: #121820; }
+    footer { padding: 0 0 38px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 560px) {
+      .hero { min-height: 58vh; }
+      h1 { font-size: 38px; }
+      .card { grid-template-columns: 96px 1fr; }
+      .body { padding: 13px; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker">Veille cinéma - jeudi 9 juillet 2026</span>
+      <h1>Le Passage est le choix le plus propre cette semaine</h1>
+      <p>Priorité appliquée : Pathé Dar Essalam, VOSTFR, créneau 17h-20h, exclusion des films déjà vus et lien de paiement direct quand Pathé le fournit.</p>
+    </div>
+  </section>
+
   <main class="wrap">
-    <header class="top">
-      <div class="kicker">Veille cinema - Ahmed - mise a jour 28 mai 2026</div>
-      <h1>Le choix cinema simple pour cette semaine</h1>
-      <p>Priorite a la VOST, aux seances apres travail et aux films qui meritent vraiment une sortie.</p>
-    </header>
-
-    <article class="card">
-      <div class="hero">
-        <span class="label">Meilleur choix - confiance elevee</span>
-        <h2>Tuner / Le Virtuose</h2>
-        <div class="meta">Daniel Roher - 1h49 - thriller, crime, romance, musique</div>
+    <section class="verdict">
+      <h2>Verdict</h2>
+      <p><b>Meilleur choix : Le passage / I Was A Stranger</b>, vendredi 10 juillet à 19h45, VOSTFR, salle 4 VIP à Pathé Dar Essalam. C’est le meilleur équilibre entre film adulte, horaire acceptable, version VOSTFR et salle confortable. La séance d’aujourd’hui existe aussi, mais à 22h30 : trop tard pour le filtre Ahmed.</p>
+      <div class="badge-row">
+        <span class="badge good">VOSTFR</span>
+        <span class="badge good">Pathé Dar Essalam</span>
+        <span class="badge good">VIP</span>
+        <span class="badge gold">19h45</span>
+        <span class="badge">Paiement direct disponible</span>
       </div>
-
-      <div class="body">
-        <p class="verdict"><b>Verdict :</b> c'est le meilleur choix du lot. Le film a une vraie idee de cinema : un accordeur de piano hypersensible au son decouvre que son oreille peut servir a ouvrir des coffres. C'est plus fin qu'un simple film de braquage, avec une tension musicale et un casting solide.</p>
-
-        <div class="metrics">
-          <div class="metric"><small>Ma note decision</small><strong>8.2/10</strong><span class="note">Sortie recommandee</span></div>
-          <div class="metric"><small>Rotten Tomatoes</small><strong>94%</strong><span class="note">Tomatometer - 94 critiques</span></div>
-          <div class="metric"><small>Public RT / IMDb</small><strong>92%</strong><span class="note">IMDb : pas de note fiable affichee</span></div>
-        </div>
-
-        <section class="section">
-          <h3>Image du film & resume</h3>
-          <div class="poster-row">
-            <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001089/poster/lg/2/movie%26uuid%3DA18E6C8E-82EA-41B0-9D80-DAC0AF6AA728" alt="Affiche du film Tuner / Le Virtuose" />
-            <p>Apres avoir perdu la voie d'une carriere musicale prometteuse, Niki travaille comme accordeur de piano avec son mentor Harry. Son hypersensibilite auditive, d'abord une fragilite, devient une competence rare : il entend les mecanismes assez finement pour ouvrir des coffres. Ce talent attire des criminels, complique sa relation naissante avec Ruthie, et l'entraine dans une zone de plus en plus dangereuse.</p>
-          </div>
-        </section>
-
-        <section class="section">
-          <h3>Trailer officiel YouTube</h3>
-          <div class="video">
-            <iframe src="https://www.youtube.com/embed/rdlOZhl-nSA" title="TUNER - Official Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-        </section>
-
-        <div class="actions">
-          <a class="btn primary" href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">Payer Pathé Dar Essalam - aujourd'hui 19h30 VOST VIP</a>
-          <a class="btn secondary" href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html" target="_blank" rel="noopener">Voir aussi Megarama Rabat</a>
-          <a class="btn secondary" href="https://www.rottentomatoes.com/m/tuner" target="_blank" rel="noopener">Rotten Tomatoes</a>
-          <a class="btn secondary" href="https://www.imdb.com/title/tt33296751/" target="_blank" rel="noopener">IMDb</a>
-        </div>
-
-        <section class="section">
-          <h3>Horaires proposes</h3>
-          <div class="showtime best">
-            <span class="time">19h30 - Pathé Dar Essalam</span>
-            <b>Meilleur choix.</b> Seance VOSTFR confirmee par l'API Pathé, salle <b>4 VIP</b>, fin 21h39. Lien de paiement direct : <a href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">ouvrir la reservation</a>.
-          </div>
-          <div class="showtime">
-            <span class="time">19h30 - Pathé Dar Essalam, jours suivants</span>
-            Vendredi 29, samedi 30 et dimanche 31 mai : VOSTFR, salle 4 VIP. Lundi 1er et mardi 2 juin : 19h45, VOSTFR, salle 4 VIP.
-          </div>
-          <div class="showtime">
-            <span class="time">14h00 / 14h15 / 14h30 - Pathé Dar Essalam</span>
-            VOSTFR aussi, salle 2 VIP. Bon plan seulement si tu veux une seance en journee.
-          </div>
-          <div class="showtime fr">
-            <span class="time">Megarama Rabat</span>
-            Possible en 70MM, mais le libelle Megarama est moins clair que l'API Pathé. Je le garde comme plan B, pas comme choix principal.
-          </div>
-          <p class="note">Méthode trouvee : lecture JSON Pathé via <code>/api/show/tuner-le-virtuose-51918/showtimes/cinema-pathe-dar-essalam/YYYY-MM-DD</code>. Les seances ci-dessus viennent de cette API.</p>
-        </section>
-
-        <section class="section">
-          <h3>Pathé Dar Essalam : VIP ou normal ?</h3>
-          <div class="chips">
-            <span class="chip good">Seance Pathé verifiee</span>
-            <span class="chip good">VOSTFR</span>
-            <span class="chip good">Salle 4 VIP</span>
-            <span class="chip good">Disponible</span>
-          </div>
-          <p>Correction : l'API Pathé confirme que Dar Essalam propose bien cette seance en <b>VIP</b>. La meilleure seance pour toi est donc <b>aujourd'hui jeudi 28 mai 2026 a 19h30</b>, en <b>VOSTFR</b>, salle <b>4 VIP</b>.</p>
-        </section>
-
-        <section class="section">
-          <h3>Equipe et acteurs</h3>
-          <div class="chips">
-            <span class="chip">Daniel Roher - realisateur</span>
-            <span class="chip">Leo Woodall</span>
-            <span class="chip">Dustin Hoffman</span>
-            <span class="chip">Havana Rose Liu</span>
-            <span class="chip">Jean Reno</span>
-            <span class="chip">Lior Raz</span>
-            <span class="chip">Tovah Feldshuh</span>
-            <span class="chip">Herbie Hancock</span>
-          </div>
-        </section>
-
-        <section class="section">
-          <h3>Pourquoi je le recommande</h3>
-          <div class="quote"><b>Rotten Tomatoes :</b> consensus tres positif : le film donne a Leo Woodall un vrai role de star et enrichit son idee de braquage avec humour et personnages vivants.</div>
-          <div class="quote"><b>The Guardian :</b> souligne le plaisir du duo Leo Woodall / Dustin Hoffman et le melange detendu entre romance, drame et thriller criminel.</div>
-          <div class="quote"><b>Mon filtre Ahmed :</b> bon potentiel de soiree parce que le film a une identite sonore, un concept clair et assez de style pour justifier la salle.</div>
-        </section>
+      <div class="actions" style="margin-top:14px">
+        <a class="btn" href="https://s.pathe.ma/fr/V5402S4759/booking" target="_blank" rel="noopener">Payer la séance choisie</a>
+        <a class="btn secondary" href="https://www.pathe.ma/fr/films-evenements/le-passage-i-was-a-stranger-52720" target="_blank" rel="noopener">Voir la fiche Pathé</a>
       </div>
-    </article>
-
-    <section class="mini">
-      <h3>Decision rapide</h3>
-      <p>Prends <b>Pathé Dar Essalam aujourd'hui a 19h30</b>. C'est VOSTFR, VIP, disponible, et le lien de paiement direct est : <a href="https://s.pathe.ma/fr/V5402S3669/booking" target="_blank" rel="noopener">https://s.pathe.ma/fr/V5402S3669/booking</a>.</p>
     </section>
 
-    <section class="mini source-list">
-      <h3>Sources verifiees</h3>
-      <p>
-        Megarama Rabat : <a href="https://rabat.megarama.ma/FR/fiche-film-cinema/MNJ6XZ/le-virtuose.html">fiche film et horaires</a><br>
-        Pathé API : <a href="https://www.pathe.ma/api/show/tuner-le-virtuose-51918/showtimes/cinema-pathe-dar-essalam/2026-05-28">seances Dar Essalam du 28 mai</a><br>
-        Paiement Pathé choisi : <a href="https://s.pathe.ma/fr/V5402S3669/booking">19h30 VOSTFR VIP</a><br>
-        Rotten Tomatoes : <a href="https://www.rottentomatoes.com/m/tuner">notes, synopsis et critiques</a><br>
-        Trailer : <a href="https://www.youtube.com/watch?v=rdlOZhl-nSA">YouTube officiel</a>
-      </p>
+    <section class="section">
+      <h2>Choix classés</h2>
+      <div class="grid">
+        <article class="card">
+          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001141/poster/md/3/movie&uuid=F2114C37-51F1-4508-99FE-F7C5BEFA56CC" alt="Affiche Le passage / I Was A Stranger" />
+          <div class="body">
+            <div class="rank">1 - meilleur choix</div>
+            <h3>Le passage / I Was A Stranger</h3>
+            <div class="meta">
+              <span><b>Séance choisie :</b> vendredi 10 juillet, 19h45, VOSTFR, salle 4 VIP, fin 21h42.</span>
+              <span><b>Film :</b> drame de Brandt Andersen, 1h37.</span>
+              <span><b>Pourquoi :</b> sujet sérieux, format dense, VOSTFR, salle VIP. La séance du 9 juillet à 22h30 est rejetée car trop tard.</span>
+            </div>
+            <p>Une tragédie à Alep déclenche une chaîne d’événements entre plusieurs personnages liés par la famille, la guerre, l’exil et le passage des frontières.</p>
+            <a class="btn" href="https://s.pathe.ma/fr/V5402S4759/booking" target="_blank" rel="noopener">Paiement Pathé</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001114/poster/md/2/movie&uuid=0FF16437-6E36-40A4-85EC-D7F60F7E22A1" alt="Affiche Disclosure Day" />
+          <div class="body">
+            <div class="rank">2 - alternative ambitieuse</div>
+            <h3>Disclosure Day</h3>
+            <div class="meta">
+              <span><b>Bonne séance :</b> vendredi 10 juillet, 19h00, VOSTFR, salle 2 VIP, fin 21h45.</span>
+              <span><b>Film :</b> drame / thriller, 2h25, réalisé par Steven Spielberg selon Pathé.</span>
+              <span><b>Réserve :</b> durée lourde pour une séance après travail.</span>
+            </div>
+            <p>Concept de révélation mondiale : et si la preuve que nous ne sommes pas seuls devenait publique ? Fort potentiel, mais séance plus longue.</p>
+            <a class="btn secondary" href="https://s.pathe.ma/fr/V5402S4758/booking" target="_blank" rel="noopener">Paiement option 2</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001116/poster/md/2/movie&uuid=5F2B11BA-85C7-496B-B19B-3E0B3943BC75" alt="Affiche Backrooms" />
+          <div class="body">
+            <div class="rank">3 - choix genre</div>
+            <h3>Backrooms</h3>
+            <div class="meta">
+              <span><b>Meilleure séance :</b> vendredi 10 juillet, 17h15, VOSTFR, salle 4 VIP, fin 19h26.</span>
+              <span><b>Film :</b> horreur, Kane Parsons, 1h51.</span>
+              <span><b>Réserve :</b> très dépendant de l’envie d’horreur ce soir-là.</span>
+            </div>
+            <p>Une porte étrange apparaît dans le sous-sol d’un magasin de meubles. Horaire excellent, mais moins universel comme choix de sortie.</p>
+            <a class="btn secondary" href="https://s.pathe.ma/fr/V5402S4823/booking" target="_blank" rel="noopener">Paiement option 3</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Autres séances utiles</h2>
+      <div class="mini">
+        <b>Supergirl</b> : Pathé Dar Essalam, vendredi 10 juillet à 19h30, VOSTFR, salle 1 Premium. Bon horaire, mais priorité plus faible qu’un drame adulte en VIP.
+      </div>
+      <div class="mini">
+        <b>Megarama Rabat</b> : la page officielle montre notamment Le passage à 17h00 et plusieurs séances 70MM/IMAX. Je le garde en source secondaire car Pathé fournit des liens de paiement directs et des versions plus claires.
+      </div>
+      <div class="mini">
+        <b>Films exclus</b> : Michael est déjà vu par Ahmed ; The Mandalorian and Grogu est déjà vu ; Tuner / Le Virtuose a déjà été proposé.
+      </div>
+    </section>
+
+    <section class="audit">
+      <h2>Audit</h2>
+      <p>Sources vérifiées le 9 juillet 2026 : API Pathé Dar Essalam pour les séances et liens de paiement ; page horaires Megarama Rabat consultée en contrôle secondaire. Images Pathé vérifiées en HTTP 200 avec type image/jpeg. Incertitude : les horaires peuvent changer, le paiement Pathé reste la source finale avant déplacement.</p>
     </section>
   </main>
+
+  <footer class="wrap">
+    Sources :
+    <a href="https://www.pathe.ma/api/shows">API films Pathé</a> ;
+    <a href="https://www.pathe.ma/api/show/le-passage-i-was-a-stranger-52720/showtimes/cinema-pathe-dar-essalam/2026-07-10">séances Pathé Le passage</a> ;
+    <a href="https://rabat.megarama.ma/FR/43/horaires-cinema-megarama-rabat.html">horaires Megarama Rabat</a>.
+  </footer>
 </body>
 </html>
