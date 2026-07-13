@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard frais digitaux - Miya Belkora Design</title>
+  <style>
+    :root {
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #d9e2df;
+      --soft: #f5f7f6;
+      --panel: #ffffff;
+      --green: #2f6b4f;
+      --blue: #285a8f;
+      --amber: #9a641d;
+      --red: #9b2c2c;
+      --shadow: 0 12px 32px rgba(31, 41, 51, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #eef2f0;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 22px 14px 48px; }
+    header {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-bottom: 14px;
+    }
+    .hero, .card, .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 20px; }
+    .eyebrow { margin: 0 0 8px; color: var(--green); font-weight: 700; font-size: 13px; }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: 0; }
+    .subtitle { max-width: 780px; margin: 12px 0 0; color: var(--muted); font-size: 15px; }
+    .status-box { padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+    .status-box strong { font-size: 28px; color: var(--green); }
+    .status-box span { color: var(--muted); font-size: 13px; }
+    .grid { display: grid; gap: 12px; }
+    .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 14px 0; }
+    .card { padding: 16px; min-width: 0; }
+    .label { margin: 0 0 8px; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+    .value { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: 0; }
+    .value small { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .note { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+    .sections { grid-template-columns: 0.95fr 1.05fr; align-items: start; }
+    h2 { margin: 0 0 12px; font-size: 19px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; }
+    .stack { display: grid; gap: 10px; }
+    .bar-row { display: grid; gap: 5px; }
+    .bar-head { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; }
+    .bar { height: 9px; background: #e7ece9; border-radius: 999px; overflow: hidden; }
+    .bar > span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+    .bar.blue > span { background: var(--blue); }
+    .bar.amber > span { background: var(--amber); }
+    .bar.red > span { background: var(--red); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e9f3ee;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge.warn { background: #fff4df; color: var(--amber); }
+    .badge.risk { background: #fdecec; color: var(--red); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px 9px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; background: #f7faf8; }
+    tr:last-child td { border-bottom: 0; }
+    .table-wrap { overflow: auto; margin-top: 12px; }
+    .source-list { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .source-list li { margin: 5px 0; }
+    .actions { margin: 0; padding-left: 20px; }
+    .actions li { margin: 8px 0; }
+    footer { margin-top: 16px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 860px) {
+      header, .sections, .kpis { grid-template-columns: 1fr; }
+      main { padding: 12px 10px 32px; }
+      .value { font-size: 24px; }
+      th, td { min-width: 135px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <section class="hero">
+        <p class="eyebrow">Miya Belkora Design - frais digitaux</p>
+        <h1>Dashboard coûts cloud, IA, Google et Ads</h1>
+        <p class="subtitle">Revue hebdomadaire du 13 juillet 2026. Les chiffres viennent de Gmail, de la mémoire workspace et du dossier frais récurrents. Les consoles Meta Ads, Google Ads, Odoo Admin et relevés carte restent à raccorder.</p>
+      </section>
+      <aside class="status-box card">
+        <span>Dernière extraction</span>
+        <strong>13/07/2026</strong>
+        <span>Alertes : Apify impayé, Figma renouvelle le 18/07, Odoo à trancher avant renouvellement.</span>
+      </aside>
+    </header>
+
+    <section class="grid kpis">
+      <div class="card">
+        <p class="label">Run-rate rapproché</p>
+        <p class="value">~5 200 <small>DH/mois</small></p>
+        <p class="note">Inclut Google Workspace, Odoo indicatif, Squarespace, Apify, WhatsApp, Figma, GitHub.</p>
+      </div>
+      <div class="card">
+        <p class="label">Critique opérationnel</p>
+        <p class="value">2</p>
+        <p class="note">Google Workspace et Odoo. Risque business si paiement ou renouvellement mal géré.</p>
+      </div>
+      <div class="card">
+        <p class="label">Impayés / frictions</p>
+        <p class="value">2</p>
+        <p class="note">Apify confirmé impayé ; Squarespace encore à clarifier depuis la passe du 08/07.</p>
+      </div>
+      <div class="card">
+        <p class="label">Non raccordé</p>
+        <p class="value">5+</p>
+        <p class="note">OpenAI, Railway, Brevo, Meta Ads, Google Ads, frais bancaires/cartes.</p>
+      </div>
+    </section>
+
+    <section class="grid sections">
+      <div class="card">
+        <h2>Répartition indicative</h2>
+        <div class="stack">
+          <div class="bar-row">
+            <div class="bar-head"><strong>Google Workspace</strong><span>~3 117 DH/mois</span></div>
+            <div class="bar"><span style="width:60%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><strong>Odoo</strong><span>~1 017 DH/mois à confirmer</span></div>
+            <div class="bar blue"><span style="width:20%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><strong>Squarespace</strong><span>~337 DH/mois à confirmer</span></div>
+            <div class="bar amber"><span style="width:7%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><strong>WhatsApp / Meta</strong><span>~300-350 DH/mois</span></div>
+            <div class="bar amber"><span style="width:7%"></span></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-head"><strong>Apify + Figma + GitHub</strong><span>~495 DH/mois</span></div>
+            <div class="bar red"><span style="width:10%"></span></div>
+          </div>
+        </div>
+        <h3>Lecture</h3>
+        <p class="note">Google domine les coûts connus. Les vrais angles morts sont publicitaires et bancaires : Meta Ads, Google Ads, cartes et abonnements personnels peuvent déplacer fortement le total.</p>
+      </div>
+
+      <div class="card">
+        <h2>Décisions prioritaires</h2>
+        <ol class="actions">
+          <li><strong>Apify</strong> : décider garder / couper. Facture 29 USD impayée depuis le 08/07, rappels répétés, compte personnel.</li>
+          <li><strong>Odoo</strong> : obtenir les devis de renouvellement et comparer utilisateurs actifs, modules et engagement 1/2/3 ans.</li>
+          <li><strong>Google Workspace</strong> : sécuriser carte principale + secours, puis auditer les licences inactives.</li>
+          <li><strong>Figma</strong> : avant le 18/07, confirmer usage réel par Miya/design ; sinon rétrograder.</li>
+          <li><strong>WhatsApp / Meta</strong> : passer d'un suivi de facture à un suivi coût par lead qualifié.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fournisseur</th>
+            <th>Montant</th>
+            <th>Statut</th>
+            <th>Risque</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Workspace</strong><br>pepinierebelkora.com</td>
+            <td>291,60 EUR/mois<br>~3 117 DH</td>
+            <td><span class="badge">Payé le 01/07</span></td>
+            <td>Refus initial Visa 0833 pour solde insuffisant, puis paiement appliqué. Suspension possible si récidive.</td>
+            <td>Garder. Auditer licences + carte de secours.</td>
+          </tr>
+          <tr>
+            <td><strong>Odoo</strong><br>Renouvellement</td>
+            <td>108,64 USD détecté en mai<br>montant complet à confirmer</td>
+            <td><span class="badge warn">En discussion</span></td>
+            <td>Critique ERP/CRM/projets. Réunion de renouvellement à reprendre le 13/07 à 14h Maroc.</td>
+            <td>Comparer devis et utilisateurs actifs avant engagement.</td>
+          </tr>
+          <tr>
+            <td><strong>Squarespace</strong></td>
+            <td>36 USD/mois<br>~337 DH</td>
+            <td><span class="badge warn">À vérifier</span></td>
+            <td>Impaye détecté le 08/07 ; pas de nouveau reçu lu le 13/07.</td>
+            <td>Payer si site stratégique, sinon migrer ou arrêter proprement.</td>
+          </tr>
+          <tr>
+            <td><strong>Apify</strong></td>
+            <td>29 USD/mois<br>~271 DH</td>
+            <td><span class="badge risk">Impayé</span></td>
+            <td>Facture #202607071388 en retard ; risque annulation. Compte personnel.</td>
+            <td>Ne payer que si usage rentable confirmé par Mohammed.</td>
+          </tr>
+          <tr>
+            <td><strong>WhatsApp Business / Meta</strong></td>
+            <td>37,20 USD détectés<br>sur reçus récents</td>
+            <td><span class="badge">Variable</span></td>
+            <td>Nouveaux tarifs Meta le 01/08 et 01/10. Hausse possible si agent IA/service messages.</td>
+            <td>Créer plafond mensuel + coût par lead qualifié.</td>
+          </tr>
+          <tr>
+            <td><strong>Figma Professionnel</strong></td>
+            <td>20 USD/mois<br>~187 DH</td>
+            <td><span class="badge warn">Renouvelle le 18/07</span></td>
+            <td>Faible montant mais licence possiblement dormante.</td>
+            <td>Confirmer usage avant renouvellement.</td>
+          </tr>
+          <tr>
+            <td><strong>GitHub Team</strong></td>
+            <td>4 USD/mois<br>~37 DH</td>
+            <td><span class="badge">Payé</span></td>
+            <td>Faible coût, carte Visa 0833.</td>
+            <td>Garder si repos actifs ; rattacher proprement à la bonne entité.</td>
+          </tr>
+          <tr>
+            <td><strong>Anthropic / Claude</strong></td>
+            <td>108 EUR détectés<br>le 20/05</td>
+            <td><span class="badge warn">Non inclus</span></td>
+            <td>Reçu transféré par Gabin, méthode 5543 ; rattachement Miya non établi.</td>
+            <td>Vérifier si c'est une dépense business ou personnelle/externe.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid sections" style="margin-top:12px">
+      <div class="card">
+        <h2>Sources vérifiées</h2>
+        <ul class="source-list">
+          <li>Gmail : Apify Billing, Google Payments, Google Workspace, WhatsApp Business Team, Meta for Business, Figma, GitHub, Odoo, Anthropic transféré.</li>
+          <li>Mémoire : `memory/2026-07-08.md`.</li>
+          <li>Dossier : `projects/frais-recurrents/inventaire-frais-recurrents-2026-07-08.md`.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Angles morts</h2>
+        <ul class="source-list">
+          <li>OpenAI / ChatGPT : aucune facture exploitable dans cette passe.</li>
+          <li>Railway : aucune facture exploitable dans cette passe.</li>
+          <li>Brevo : notifications opérationnelles, pas facture.</li>
+          <li>Meta Ads / Google Ads : pas de facture lue ; extraction Ads Manager requise.</li>
+          <li>Cartes bancaires : relevés nécessaires pour fermer le rapprochement.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Taux indicatifs repris du dossier : USD/MAD ~9,36 ; EUR/MAD ~10,69. Toute action financière reste soumise à validation d'Ahmed.
+    </footer>
+  </main>
+</body>
+</html>
+
