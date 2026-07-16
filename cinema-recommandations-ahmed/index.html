@@ -3,143 +3,164 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veille cinéma Ahmed - 9 juillet 2026</title>
-  <meta name="description" content="Recommandation cinéma mobile-first pour Ahmed, avec meilleur choix, séances VOSTFR et liens de paiement quand disponibles." />
+  <title>Veille cinéma Ahmed - 16 juillet 2026</title>
+  <meta name="description" content="Veille cinéma mobile-first pour Ahmed : meilleur choix VOSTFR, séances autour de 17h-20h et lien de réservation." />
   <style>
     :root {
-      --bg: #0c0f13;
-      --panel: #151a20;
-      --panel2: #10151b;
-      --text: #fff8ea;
+      --bg: #101114;
+      --panel: #181b20;
+      --panel2: #f7f4ec;
+      --text: #fffaf0;
+      --ink: #171514;
       --muted: #b9c0c8;
-      --gold: #f0b84a;
-      --green: #61d394;
-      --red: #e66a76;
-      --blue: #82c7ff;
-      --line: rgba(255,255,255,.13);
+      --paper-muted: #67625b;
+      --gold: #e7b44c;
+      --green: #54c58c;
+      --red: #dd6370;
+      --blue: #8fc7ff;
+      --line: rgba(255,255,255,.14);
+      --paper-line: #ded6c8;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background: #0c0f13;
+      background: var(--bg);
       color: var(--text);
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.45;
     }
-    a { color: var(--blue); overflow-wrap: anywhere; }
+    a { color: inherit; overflow-wrap: anywhere; }
     .hero {
-      min-height: 62vh;
+      min-height: 64vh;
       display: grid;
       align-items: end;
       background:
-        linear-gradient(180deg, rgba(12,15,19,.2), rgba(12,15,19,.94)),
-        url("https://media.pathe.ma/movie/mx/52720/lg/62/media") center/cover,
+        linear-gradient(180deg, rgba(16,17,20,.22), rgba(16,17,20,.94)),
+        url("https://images.monnaie-services.com/movie_poster/320/MA7UI0C/YV1BX0DV.jpg") center 18% / cover,
         #111820;
     }
-    .wrap { width: min(860px, calc(100% - 28px)); margin: auto; }
-    .hero .wrap { padding: 76px 0 38px; }
-    .kicker {
+    .wrap { width: min(900px, calc(100% - 28px)); margin: auto; }
+    .hero .wrap { padding: 78px 0 40px; }
+    .eyebrow {
       display: inline-flex;
-      border: 1px solid rgba(255,255,255,.28);
+      border: 1px solid rgba(255,255,255,.35);
       border-radius: 999px;
       padding: 7px 11px;
       background: rgba(0,0,0,.28);
-      font-size: 12px;
-      font-weight: 900;
-      color: #ffe3a5;
+      font-weight: 800;
+      font-size: 13px;
     }
-    h1 { max-width: 760px; margin: 14px 0 10px; font-size: 46px; line-height: .96; letter-spacing: 0; }
-    .hero p { max-width: 680px; margin: 0; color: rgba(255,248,234,.88); font-size: 17px; }
-    main { padding: 18px 0 46px; }
-    .verdict, .card, .audit {
-      background: linear-gradient(160deg, var(--panel), var(--panel2));
+    h1 {
+      margin: 16px 0 12px;
+      max-width: 760px;
+      font-size: clamp(39px, 11vw, 72px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+    .hero p { max-width: 720px; margin: 0; color: rgba(255,250,240,.88); font-size: 18px; }
+    main { padding: 0 0 44px; }
+    .verdict {
+      margin-top: -26px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 12px;
+    }
+    .panel, .card, .audit {
       border: 1px solid var(--line);
       border-radius: 8px;
-      box-shadow: 0 22px 70px rgba(0,0,0,.34);
+      background: var(--panel);
+      box-shadow: 0 18px 44px rgba(0,0,0,.22);
     }
-    .verdict { margin-top: -34px; position: relative; padding: 18px; }
-    h2, h3 { margin: 0; line-height: 1.1; letter-spacing: 0; }
-    h2 { font-size: 26px; }
-    h3 { font-size: 20px; }
+    .panel, .audit { padding: 18px; }
+    h2, h3 { margin: 0; line-height: 1.12; letter-spacing: 0; }
+    h2 { font-size: 27px; }
+    h3 { font-size: 23px; }
     p { color: var(--muted); }
-    .badge-row, .actions { display: flex; flex-wrap: wrap; gap: 8px; }
-    .badge {
+    .panel p, .audit p { margin: 9px 0 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 13px; }
+    .tag {
       display: inline-flex;
       align-items: center;
       min-height: 30px;
       padding: 6px 10px;
       border-radius: 999px;
-      background: #242b34;
-      color: #e7edf4;
+      background: rgba(255,255,255,.1);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.16);
       font-size: 13px;
       font-weight: 800;
     }
-    .good { background: rgba(97,211,148,.16); color: var(--green); }
-    .gold { background: rgba(240,184,74,.17); color: #ffd98b; }
-    .warn { background: rgba(230,106,118,.16); color: #ffadb5; }
-    .section { margin-top: 22px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
-    .card { overflow: hidden; display: grid; grid-template-columns: 118px 1fr; min-height: 170px; }
-    .poster { width: 100%; height: 100%; object-fit: cover; background: #080a0d; }
-    .body { padding: 15px; }
-    .rank { color: var(--gold); font-size: 13px; font-weight: 950; text-transform: uppercase; }
-    .meta { display: grid; gap: 5px; margin: 10px 0; color: var(--muted); font-size: 14px; }
+    .tag.green { background: rgba(84,197,140,.17); color: #bff2d5; }
+    .tag.gold { background: rgba(231,180,76,.18); color: #ffe0a0; }
+    .tag.red { background: rgba(221,99,112,.18); color: #ffc5cb; }
+    .section { margin-top: 30px; }
+    .grid { display: grid; gap: 14px; margin-top: 14px; }
+    .card { overflow: hidden; display: grid; grid-template-columns: 118px minmax(0,1fr); min-height: 184px; }
+    .poster { background: #272b31; }
+    .poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .body { padding: 16px; min-width: 0; }
+    .rank { color: var(--gold); font-weight: 900; font-size: 13px; text-transform: uppercase; }
+    .meta { display: grid; gap: 6px; margin-top: 12px; color: var(--muted); font-size: 15px; }
     .meta b { color: var(--text); }
-    .btn {
+    .button {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 40px;
-      padding: 9px 12px;
+      margin-top: 14px;
+      padding: 9px 13px;
       border-radius: 8px;
-      background: #f0b84a;
-      color: #1a1208;
+      background: var(--text);
+      color: var(--ink);
       text-decoration: none;
-      font-weight: 950;
+      font-weight: 900;
       font-size: 14px;
     }
-    .btn.secondary { background: #232a33; color: var(--text); border: 1px solid var(--line); }
-    .mini {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255,255,255,.04);
+    .note {
+      margin-top: 18px;
       padding: 14px;
-      margin-top: 10px;
+      border-radius: 8px;
+      background: var(--panel2);
+      color: var(--ink);
+      border: 1px solid var(--paper-line);
     }
-    .audit { padding: 16px; margin-top: 22px; background: #121820; }
-    footer { padding: 0 0 38px; color: var(--muted); font-size: 13px; }
-    @media (max-width: 560px) {
-      .hero { min-height: 58vh; }
-      h1 { font-size: 38px; }
-      .card { grid-template-columns: 96px 1fr; }
-      .body { padding: 13px; }
-      .btn { width: 100%; }
+    .note p, .note li { color: var(--paper-muted); }
+    .note ul { margin: 10px 0 0; padding-left: 18px; }
+    .audit { margin-top: 18px; }
+    footer { padding: 24px 0 42px; color: var(--muted); font-size: 13px; }
+    @media (min-width: 760px) {
+      .verdict { grid-template-columns: 1.1fr .9fr; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .card { grid-template-columns: 1fr; grid-template-rows: 260px auto; }
     }
   </style>
 </head>
 <body>
   <section class="hero">
     <div class="wrap">
-      <span class="kicker">Veille cinéma - jeudi 9 juillet 2026</span>
-      <h1>Le Passage est le choix le plus propre cette semaine</h1>
-      <p>Priorité appliquée : Pathé Dar Essalam, VOSTFR, créneau 17h-20h, exclusion des films déjà vus et lien de paiement direct quand Pathé le fournit.</p>
+      <span class="eyebrow">Jeudi 16 juillet 2026 · Rabat</span>
+      <h1>L'Odyssée, en VOSTFR IMAX à 18h00</h1>
+      <p>Le meilleur choix du soir est clair : un Nolan spectaculaire, en version originale sous-titrée, dans la fenêtre idéale d'Ahmed. La fin à 20h53 dépasse un peu la limite, mais le départ à 18h00 compense.</p>
     </div>
   </section>
 
   <main class="wrap">
     <section class="verdict">
-      <h2>Verdict</h2>
-      <p><b>Meilleur choix : Le passage / I Was A Stranger</b>, vendredi 10 juillet à 19h45, VOSTFR, salle 4 VIP à Pathé Dar Essalam. C’est le meilleur équilibre entre film adulte, horaire acceptable, version VOSTFR et salle confortable. La séance d’aujourd’hui existe aussi, mais à 22h30 : trop tard pour le filtre Ahmed.</p>
-      <div class="badge-row">
-        <span class="badge good">VOSTFR</span>
-        <span class="badge good">Pathé Dar Essalam</span>
-        <span class="badge good">VIP</span>
-        <span class="badge gold">19h45</span>
-        <span class="badge">Paiement direct disponible</span>
+      <div class="panel">
+        <h2>Verdict</h2>
+        <p><b>BEST_CHOICE : L'Odyssée</b> — Megarama Rabat, 18h00, VOSTFR, IMAX. C'est le meilleur arbitrage entre qualité du film, format, version et horaire.</p>
+        <a class="button" href="https://www.ticketingcine.fr?nc=1160&amp;lang=ma&amp;ids=122880">Réserver la séance 18h00</a>
       </div>
-      <div class="actions" style="margin-top:14px">
-        <a class="btn" href="https://s.pathe.ma/fr/V5402S4759/booking" target="_blank" rel="noopener">Payer la séance choisie</a>
-        <a class="btn secondary" href="https://www.pathe.ma/fr/films-evenements/le-passage-i-was-a-stranger-52720" target="_blank" rel="noopener">Voir la fiche Pathé</a>
+      <div class="panel">
+        <h2>Règles appliquées</h2>
+        <p>Profil Ahmed respecté : priorité VOST/VOSTFR, créneau 17h-20h, exclusion des films vus et pénalisation des séances après 20h.</p>
+        <div class="tags">
+          <span class="tag green">VOSTFR prioritaire</span>
+          <span class="tag gold">18h00</span>
+          <span class="tag green">IMAX</span>
+          <span class="tag red">Pathé non retenu</span>
+        </div>
       </div>
     </section>
 
@@ -147,76 +168,76 @@
       <h2>Choix classés</h2>
       <div class="grid">
         <article class="card">
-          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001141/poster/md/3/movie&uuid=F2114C37-51F1-4508-99FE-F7C5BEFA56CC" alt="Affiche Le passage / I Was A Stranger" />
+          <div class="poster"><img src="https://images.monnaie-services.com/movie_poster/320/MA7UI0C/YV1BX0DV.jpg" alt="Affiche L'Odyssée"></div>
           <div class="body">
-            <div class="rank">1 - meilleur choix</div>
-            <h3>Le passage / I Was A Stranger</h3>
+            <div class="rank">1 · Recommandé</div>
+            <h3>L'Odyssée</h3>
             <div class="meta">
-              <span><b>Séance choisie :</b> vendredi 10 juillet, 19h45, VOSTFR, salle 4 VIP, fin 21h42.</span>
-              <span><b>Film :</b> drame de Brandt Andersen, 1h37.</span>
-              <span><b>Pourquoi :</b> sujet sérieux, format dense, VOSTFR, salle VIP. La séance du 9 juillet à 22h30 est rejetée car trop tard.</span>
+              <div><b>Date :</b> jeudi 16 juillet 2026</div>
+              <div><b>Ville :</b> Rabat</div>
+              <div><b>Lieu :</b> Megarama Rabat, Arribat Center</div>
+              <div><b>Séance :</b> 18h00, fin 20h53</div>
+              <div><b>Version :</b> VOSTFR · IMAX</div>
+              <div><b>Confiance :</b> élevée, séance et paiement visibles sur Megarama/TicketingCine</div>
             </div>
-            <p>Une tragédie à Alep déclenche une chaîne d’événements entre plusieurs personnages liés par la famille, la guerre, l’exil et le passage des frontières.</p>
-            <a class="btn" href="https://s.pathe.ma/fr/V5402S4759/booking" target="_blank" rel="noopener">Paiement Pathé</a>
+            <a class="button" href="https://www.ticketingcine.fr?nc=1160&amp;lang=ma&amp;ids=122880">Paiement</a>
           </div>
         </article>
 
         <article class="card">
-          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001114/poster/md/2/movie&uuid=0FF16437-6E36-40A4-85EC-D7F60F7E22A1" alt="Affiche Disclosure Day" />
+          <div class="poster"><img src="https://images.monnaie-services.com/movie_poster/320/MAJDQGW/VSKULW6X.jpg" alt="Affiche Supergirl"></div>
           <div class="body">
-            <div class="rank">2 - alternative ambitieuse</div>
-            <h3>Disclosure Day</h3>
+            <div class="rank">2 · Alternative légère</div>
+            <h3>Supergirl</h3>
             <div class="meta">
-              <span><b>Bonne séance :</b> vendredi 10 juillet, 19h00, VOSTFR, salle 2 VIP, fin 21h45.</span>
-              <span><b>Film :</b> drame / thriller, 2h25, réalisé par Steven Spielberg selon Pathé.</span>
-              <span><b>Réserve :</b> durée lourde pour une séance après travail.</span>
+              <div><b>Date :</b> jeudi 16 juillet 2026</div>
+              <div><b>Ville :</b> Rabat</div>
+              <div><b>Lieu :</b> Megarama Rabat, Arribat Center</div>
+              <div><b>Séance :</b> 16h00, fin 17h48</div>
+              <div><b>Version :</b> VOST · 70MM</div>
+              <div><b>Confiance :</b> bonne, mais créneau un peu tôt et film moins fort</div>
             </div>
-            <p>Concept de révélation mondiale : et si la preuve que nous ne sommes pas seuls devenait publique ? Fort potentiel, mais séance plus longue.</p>
-            <a class="btn secondary" href="https://s.pathe.ma/fr/V5402S4758/booking" target="_blank" rel="noopener">Paiement option 2</a>
+            <a class="button" href="https://www.ticketingcine.fr?nc=1160&amp;lang=ma&amp;ids=123039">Réserver</a>
           </div>
         </article>
 
         <article class="card">
-          <img class="poster" src="https://media.pathe.ma/movie/alex/HO00001116/poster/md/2/movie&uuid=5F2B11BA-85C7-496B-B19B-3E0B3943BC75" alt="Affiche Backrooms" />
+          <div class="poster"><img src="https://images.monnaie-services.com/movie_poster/320/MA2QGMF/AFL64YJT.jpg" alt="Affiche Backrooms"></div>
           <div class="body">
-            <div class="rank">3 - choix genre</div>
+            <div class="rank">3 · Option courte</div>
             <h3>Backrooms</h3>
             <div class="meta">
-              <span><b>Meilleure séance :</b> vendredi 10 juillet, 17h15, VOSTFR, salle 4 VIP, fin 19h26.</span>
-              <span><b>Film :</b> horreur, Kane Parsons, 1h51.</span>
-              <span><b>Réserve :</b> très dépendant de l’envie d’horreur ce soir-là.</span>
+              <div><b>Date :</b> jeudi 16 juillet 2026</div>
+              <div><b>Ville :</b> Rabat</div>
+              <div><b>Lieu :</b> Megarama Rabat, Arribat Center</div>
+              <div><b>Séance :</b> 17h00, fin 18h45</div>
+              <div><b>Version :</b> VOST · 70MM</div>
+              <div><b>Confiance :</b> bonne, mais le genre horreur est plus risqué</div>
             </div>
-            <p>Une porte étrange apparaît dans le sous-sol d’un magasin de meubles. Horaire excellent, mais moins universel comme choix de sortie.</p>
-            <a class="btn secondary" href="https://s.pathe.ma/fr/V5402S4823/booking" target="_blank" rel="noopener">Paiement option 3</a>
+            <a class="button" href="https://www.ticketingcine.fr?nc=1160&amp;lang=ma&amp;ids=123220">Réserver</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Autres séances utiles</h2>
-      <div class="mini">
-        <b>Supergirl</b> : Pathé Dar Essalam, vendredi 10 juillet à 19h30, VOSTFR, salle 1 Premium. Bon horaire, mais priorité plus faible qu’un drame adulte en VIP.
-      </div>
-      <div class="mini">
-        <b>Megarama Rabat</b> : la page officielle montre notamment Le passage à 17h00 et plusieurs séances 70MM/IMAX. Je le garde en source secondaire car Pathé fournit des liens de paiement directs et des versions plus claires.
-      </div>
-      <div class="mini">
-        <b>Films exclus</b> : Michael est déjà vu par Ahmed ; The Mandalorian and Grogu est déjà vu ; Tuner / Le Virtuose a déjà été proposé.
-      </div>
+    <section class="note">
+      <h2>Pourquoi Pathé n'est pas le choix final</h2>
+      <p>Pathé Dar Essalam reste prioritaire dans le profil d'Ahmed, mais la page publique consultée aujourd'hui affiche surtout la liste des films et les filtres, sans séance exploitable dans le créneau recommandé. L'API locale Pathé a renvoyé une liste vide pour l'ancien script de veille. Je n'ai donc pas inventé de séance Pathé.</p>
+      <ul>
+        <li>Films vus exclus : Michael, The Mandalorian and Grogu.</li>
+        <li>Film déjà proposé exclu : Tuner / Le Virtuose.</li>
+        <li>Séances après 20h fortement pénalisées.</li>
+      </ul>
     </section>
 
     <section class="audit">
-      <h2>Audit</h2>
-      <p>Sources vérifiées le 9 juillet 2026 : API Pathé Dar Essalam pour les séances et liens de paiement ; page horaires Megarama Rabat consultée en contrôle secondaire. Images Pathé vérifiées en HTTP 200 avec type image/jpeg. Incertitude : les horaires peuvent changer, le paiement Pathé reste la source finale avant déplacement.</p>
+      <h2>Checklist d'audit appliquée</h2>
+      <p>Affiches vérifiées en HTTP 200, page mobile-first, verdict visible, liens de réservation réels, horaires et versions non inventés. Sources : Megarama Rabat, TicketingCine, Pathé Dar Essalam et mémoire cinéma Ahmed.</p>
     </section>
   </main>
 
   <footer class="wrap">
-    Sources :
-    <a href="https://www.pathe.ma/api/shows">API films Pathé</a> ;
-    <a href="https://www.pathe.ma/api/show/le-passage-i-was-a-stranger-52720/showtimes/cinema-pathe-dar-essalam/2026-07-10">séances Pathé Le passage</a> ;
-    <a href="https://rabat.megarama.ma/FR/43/horaires-cinema-megarama-rabat.html">horaires Megarama Rabat</a>.
+    Sources : <a href="https://rabat.megarama.ma/FR/43/horaires-cinema-megarama-rabat.html">horaires Megarama Rabat</a>, <a href="https://www.pathe.ma/fr/cinemas/cinema-pathe-dar-essalam">Pathé Dar Essalam</a>, <a href="https://www.ticketingcine.fr?nc=1160&amp;lang=ma&amp;ids=122880">TicketingCine</a>. Généré le 16 juillet 2026 à 14h34 UTC.
   </footer>
 </body>
 </html>
