@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard frais digitaux - Miya Belkora Design</title>
+  <style>
+    :root {
+      --ink: #20242a;
+      --muted: #637083;
+      --line: #d9e1df;
+      --panel: #ffffff;
+      --bg: #eef3f0;
+      --green: #2f6b4f;
+      --blue: #285a8f;
+      --amber: #9a641d;
+      --red: #9b2c2c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.45; }
+    main { max-width: 1160px; margin: 0 auto; padding: 22px 14px 44px; }
+    header, .grid, .columns { display: grid; gap: 12px; }
+    header { grid-template-columns: 1.4fr .6fr; align-items: stretch; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 28px rgba(32,36,42,.08); }
+    .hero { padding: 20px; }
+    .eyebrow { margin: 0 0 8px; color: var(--green); font-weight: 800; font-size: 13px; }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.06; letter-spacing: 0; }
+    .subtitle { margin: 12px 0 0; color: var(--muted); max-width: 780px; font-size: 15px; }
+    .status { padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+    .status strong { font-size: 30px; color: var(--green); }
+    .status span, .note { color: var(--muted); font-size: 13px; }
+    .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 14px 0; }
+    .card { padding: 16px; }
+    .label { margin: 0 0 7px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .value { margin: 0; font-size: 26px; font-weight: 850; letter-spacing: 0; }
+    .value small { font-size: 13px; color: var(--muted); font-weight: 650; }
+    .columns { grid-template-columns: .95fr 1.05fr; align-items: start; }
+    h2 { margin: 0 0 12px; font-size: 19px; }
+    h3 { margin: 18px 0 8px; font-size: 15px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 7px 0; }
+    .stack { display: grid; gap: 10px; }
+    .badge { display: inline-flex; width: fit-content; min-height: 24px; align-items: center; padding: 3px 8px; border-radius: 999px; background: #e9f3ee; color: var(--green); font-size: 12px; font-weight: 800; }
+    .badge.warn { background: #fff4df; color: var(--amber); }
+    .badge.danger { background: #ffecec; color: var(--red); }
+    .badge.info { background: #eaf1fb; color: var(--blue); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; }
+    .table-wrap { overflow-x: auto; margin-top: 12px; }
+    .footer { margin-top: 14px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 820px) { header, .kpis, .columns { grid-template-columns: 1fr; } main { padding: 12px; } .value { font-size: 24px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <section class="panel hero">
+      <p class="eyebrow">Miya Belkora Design · Revue hebdo du 20/07/2026</p>
+      <h1>Frais digitaux : moins d'Apify, mais Figma devient urgent.</h1>
+      <p class="subtitle">Lecture croisee Gmail + memoire + dossier frais recurrents. Le tableau isole les factures confirmees, les impayes et les postes encore non rapproches.</p>
+    </section>
+    <aside class="panel status">
+      <span>Run-rate rapproche, hors Ads/OpenAI/Railway/Brevo non confirmes</span>
+      <strong>~4 930 DH/mois</strong>
+      <span>Apify retire du total apres annulation. Odoo principal reste a rapprocher.</span>
+    </aside>
+  </header>
+
+  <section class="grid kpis">
+    <div class="panel card"><p class="label">Plus gros poste connu</p><p class="value">3 117 <small>DH/mois</small></p><p class="note">Google Workspace, critique.</p></div>
+    <div class="panel card"><p class="label">Gain confirme</p><p class="value">271 <small>DH/mois</small></p><p class="note">Apify annule le 18/07.</p></div>
+    <div class="panel card"><p class="label">A regulariser</p><p class="value">20 <small>USD</small></p><p class="note">Figma en souffrance.</p></div>
+    <div class="panel card"><p class="label">Nouveau devis</p><p class="value">4,03 <small>USD</small></p><p class="note">Odoo prorata nouvel utilisateur.</p></div>
+  </section>
+
+  <section class="columns">
+    <div class="panel card">
+      <h2>Verdict</h2>
+      <p>La bonne nouvelle : Apify n'est plus un abonnement dormant a payer. La mauvaise : les paiements digitaux restent disperses et fragiles. Figma a bascule en retard, Squarespace n'a pas montre de regularisation, et Odoo pousse un devis lie a l'ajout d'un utilisateur.</p>
+      <h3>Actions prioritaires</h3>
+      <ul>
+        <li><strong>Figma</strong> : payer seulement si l'equipe design l'utilise vraiment ; sinon accepter la retrogradation.</li>
+        <li><strong>Odoo</strong> : verifier l'utilisateur ajoute avant validation des 4,03 USD, puis demander le detail utilisateurs/modules du renouvellement.</li>
+        <li><strong>Google Workspace</strong> : auditer licences + carte de secours, car le poste est critique et deja sujet a refus bancaire.</li>
+        <li><strong>Meta / WhatsApp</strong> : suivre cout par lead qualifie avant la hausse tarifaire Meta.</li>
+      </ul>
+    </div>
+    <div class="panel card">
+      <h2>Nouveaux signaux depuis le 13/07</h2>
+      <div class="stack">
+        <div><span class="badge">Apify</span><p class="note">Facture #202607071388 de 29 USD annulee ; abonnement Starter termine le 18/07 pour non-paiement.</p></div>
+        <div><span class="badge danger">Figma</span><p class="note">Paiement non traite le 18/07 ; facture in_1TuT5mIvcqWR3dFDCFeSDH9p ; total 20 USD ; statut en retard.</p></div>
+        <div><span class="badge warn">Odoo</span><p class="note">Devis SO2026/8059426 de 4,03 USD pour nouvel utilisateur, a valider seulement si l'ajout est volontaire.</p></div>
+        <div><span class="badge info">Non confirmes</span><p class="note">Aucune nouvelle facture exploitable pour GitHub, Meta Ads, WhatsApp, Railway, OpenAI, Anthropic/Claude, Brevo ou Squarespace.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel card table-wrap">
+    <h2>Tableau de suivi</h2>
+    <table>
+      <thead><tr><th>Fournisseur</th><th>Montant</th><th>Statut</th><th>Decision</th><th>Action suivante</th></tr></thead>
+      <tbody>
+        <tr><td>Google Workspace</td><td>291,60 EUR/mois<br>~3 117 DH</td><td><span class="badge">Critique</span></td><td>Garder</td><td>Auditer licences + securiser carte principale et carte de secours.</td></tr>
+        <tr><td>Odoo</td><td>4,03 USD nouveau devis<br>principal a confirmer</td><td><span class="badge warn">A valider</span></td><td>Garder, mais controler</td><td>Verifier l'utilisateur ajoute et demander le detail complet du renouvellement.</td></tr>
+        <tr><td>Squarespace</td><td>36 USD/mois</td><td><span class="badge warn">Impayé precedent</span></td><td>Trancher</td><td>Payer si le site reste strategique, sinon couper proprement.</td></tr>
+        <tr><td>Figma</td><td>20 USD/mois</td><td><span class="badge danger">En retard</span></td><td>Conditionnel</td><td>Payer uniquement si usage design actif confirme.</td></tr>
+        <tr><td>WhatsApp / Meta</td><td>~300-350 DH/mois</td><td><span class="badge info">Variable</span></td><td>Garder sous plafond</td><td>Mettre cout par lead qualifie dans le suivi hebdo.</td></tr>
+        <tr><td>GitHub Team</td><td>4 USD/mois<br>~37 DH</td><td><span class="badge">Faible cout</span></td><td>Garder</td><td>Verifier rattachement carte/societe.</td></tr>
+        <tr><td>Apify</td><td>29 USD/mois</td><td><span class="badge">Annule</span></td><td>Ne pas reactiver</td><td>Reactiver seulement avec workflow rentable documente.</td></tr>
+        <tr><td>OpenAI / Claude / Railway / Brevo / Ads</td><td>Non rapproche</td><td><span class="badge info">Angle mort</span></td><td>Investiguer</td><td>Croiser avec releves cartes et consoles fournisseurs.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="footer">Sources : Gmail apres 2026-07-13, memoire OpenClaw, inventaire et revue precedente dans /data/workspace/projects/frais-recurrents/. Taux indicatifs conserves : USD/MAD ~9,36 ; EUR/MAD ~10,69.</p>
+</main>
+</body>
+</html>
